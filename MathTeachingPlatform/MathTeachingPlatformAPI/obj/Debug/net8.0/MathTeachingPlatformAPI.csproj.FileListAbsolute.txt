@@ -183,5 +183,4 @@ E:\Code\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\bin\Deb
 E:\Code\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
 E:\Code\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 E:\Code\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\bin\Debug\net8.0\Octopus.Client.dll
-E:\Code\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\Code\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\bin\Debug\net8.0\BCrypt.Net-Next.dll

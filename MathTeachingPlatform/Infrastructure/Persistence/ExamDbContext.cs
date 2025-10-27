@@ -9,17 +9,32 @@ namespace Infrastructure.Persistence
 
         public DbSet<ExamAttempt> ExamAttempts => Set<ExamAttempt>();
 
-        protected override void OnModelCreating(ModelBuilder b)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            b.Entity<ExamAttempt>(e =>
+            modelBuilder.Entity<ExamAttempt>(b =>
             {
-                e.ToTable("exam_attempts");
-                e.HasKey(x => x.AttemptId);
-                e.Property(x => x.Score).HasColumnType("decimal(5,2)");
-                e.Property(x => x.Status).HasConversion<string>().HasMaxLength(30);
+                b.ToTable("exam_attempts");
+                b.HasKey(x => x.AttemptId);
+
+                b.Property(x => x.AttemptId).HasColumnName("attempt_id");
+                b.Property(x => x.StudentId).HasColumnName("student_id").IsRequired();
+                b.Property(x => x.StartTime).HasColumnName("start_time");
+                b.Property(x => x.EndTime).HasColumnName("end_time");
+                b.Property(x => x.Score).HasColumnName("score").HasColumnType("decimal(5,2)");
+                b.Property(x => x.AttemptNumber).HasColumnName("attempt_number").IsRequired();
+                b.Property(x => x.Status).HasColumnName("status").HasConversion<string>().HasMaxLength(30).IsRequired();
+                b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+
+                b.HasIndex(x => x.StudentId);
+                b.HasIndex(x => x.Status);
+                b.HasIndex(x => new { x.StudentId, x.AttemptNumber });
+                b.HasIndex(x => x.StartTime);
             });
 
-            base.OnModelCreating(b);
+            modelBuilder.Entity<ClassStudent>()
+        .HasKey(cs => new { cs.ClassId, cs.StudentId });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

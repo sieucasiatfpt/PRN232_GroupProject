@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace Infrastructure.Persistence
 {
@@ -8,64 +9,173 @@ namespace Infrastructure.Persistence
         public ContentDbContext(DbContextOptions<ContentDbContext> opts) : base(opts) { }
 
         public DbSet<Class> Classes => Set<Class>();
+        public DbSet<ClassStudent> ClassStudents => Set<ClassStudent>();
         public DbSet<Subject> Subjects => Set<Subject>();
         public DbSet<Syllabus> Syllabi => Set<Syllabus>();
         public DbSet<ExamMatrix> ExamMatrices => Set<ExamMatrix>();
         public DbSet<ExamQuestion> ExamQuestions => Set<ExamQuestion>();
         public DbSet<Activity> Activities => Set<Activity>();
 
-        protected override void OnModelCreating(ModelBuilder b)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            b.Entity<Class>(e =>
+            modelBuilder.Entity<Subject>(b =>
             {
-                e.ToTable("classes");
-                e.HasKey(x => x.ClassId);
-                e.Property(x => x.Name).HasMaxLength(150);
-                e.Property(x => x.Schedule).HasMaxLength(100);
+                b.ToTable("subjects");
+                b.HasKey(x => x.SubjectId);
+
+                b.Property(x => x.SubjectId).HasColumnName("subject_id");
+                b.Property(x => x.TeacherId).HasColumnName("teacher_id").IsRequired();
+                b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
+                b.Property(x => x.Description).HasColumnName("description").HasColumnType("nvarchar(max)");
+                b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+                b.Property(x => x.UpdatedAt).HasColumnName("updated_at");
+
+                b.HasIndex(x => x.TeacherId);
+                b.HasIndex(x => x.Title);
+
+                b.HasMany(x => x.Classes)
+                    .WithOne(c => c.Subject)
+                    .HasForeignKey(c => c.SubjectId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                b.HasMany(x => x.Syllabi)
+                    .WithOne(s => s.Subject)
+                    .HasForeignKey(s => s.SubjectId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                b.HasMany(x => x.ExamMatrices)
+                    .WithOne(em => em.Subject)
+                    .HasForeignKey(em => em.SubjectId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
-            b.Entity<Subject>(e =>
+            modelBuilder.Entity<Class>(b =>
             {
-                e.ToTable("subjects");
-                e.HasKey(x => x.SubjectId);
-                e.Property(x => x.Title).HasMaxLength(150);
-                e.Property(x => x.Description);
+                b.ToTable("classes");
+                b.HasKey(x => x.ClassId);
+
+                b.Property(x => x.ClassId).HasColumnName("class_id");
+                b.Property(x => x.SubjectId).HasColumnName("subject_id").IsRequired();
+                b.Property(x => x.TeacherId).HasColumnName("teacher_id").IsRequired();
+                b.Property(x => x.Name).HasColumnName("name").HasMaxLength(255).IsRequired();
+                b.Property(x => x.Schedule).HasColumnName("schedule").HasMaxLength(500);
+                b.Property(x => x.StartDate).HasColumnName("start_date");
+                b.Property(x => x.EndDate).HasColumnName("end_date");
+                b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+
+                b.HasIndex(x => x.SubjectId);
+                b.HasIndex(x => x.TeacherId);
+                b.HasIndex(x => x.StartDate);
+
+                b.HasMany(x => x.ClassStudents)
+                    .WithOne(cs => cs.Class)
+                    .HasForeignKey(cs => cs.ClassId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                b.HasMany(x => x.Activities)
+                    .WithOne(a => a.Class)
+                    .HasForeignKey(a => a.ClassId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
-            b.Entity<Syllabus>(e =>
+            modelBuilder.Entity<ClassStudent>(b =>
             {
-                e.ToTable("syllabus");
-                e.HasKey(x => x.SyllabusId);
-                e.Property(x => x.Title).HasMaxLength(150);
-                e.Property(x => x.Url);
+                b.ToTable("class_students");
+                b.HasKey(x => new { x.ClassId, x.StudentId });
+
+                b.Property(x => x.ClassId).HasColumnName("class_id");
+                b.Property(x => x.StudentId).HasColumnName("student_id");
+                b.Property(x => x.EnrollmentStatus).HasColumnName("enrollment_status").HasMaxLength(50).IsRequired();
+                b.Property(x => x.EnrolledAt).HasColumnName("enrolled_at").IsRequired();
+
+                b.HasIndex(x => x.StudentId);
+                b.HasIndex(x => x.EnrollmentStatus);
             });
 
-            b.Entity<ExamMatrix>(e =>
+            modelBuilder.Entity<Syllabus>(b =>
             {
-                e.ToTable("exam_matrix");
-                e.HasKey(x => x.MatrixId);
-                e.Property(x => x.Title).HasMaxLength(150);
+                b.ToTable("syllabi");
+                b.HasKey(x => x.SyllabusId);
+
+                b.Property(x => x.SyllabusId).HasColumnName("syllabus_id");
+                b.Property(x => x.TeacherId).HasColumnName("teacher_id").IsRequired();
+                b.Property(x => x.SubjectId).HasColumnName("subject_id").IsRequired();
+                b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
+                b.Property(x => x.Description).HasColumnName("description").HasColumnType("nvarchar(max)");
+                b.Property(x => x.Url).HasColumnName("url").HasMaxLength(500);
+                b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+
+                b.HasIndex(x => x.TeacherId);
+                b.HasIndex(x => x.SubjectId);
+
+                b.HasMany(x => x.ExamQuestions)
+                    .WithOne(eq => eq.Syllabus)
+                    .HasForeignKey(eq => eq.SyllabusId)
+                    .OnDelete(DeleteBehavior.SetNull);
             });
 
-            b.Entity<ExamQuestion>(e =>
+            modelBuilder.Entity<ExamMatrix>(b =>
             {
-                e.ToTable("exam_questions");
-                e.HasKey(x => x.QuestionId);
-                e.Property(x => x.QuestionText);
-                e.Property(x => x.QuestionType).HasConversion<string>().HasMaxLength(30);
-                e.Property(x => x.OptionsJson).HasColumnType("nvarchar(max)");
-                e.Property(x => x.Answers);
-                e.Property(x => x.Marks);
+                b.ToTable("exam_matrices");
+                b.HasKey(x => x.MatrixId);
+
+                b.Property(x => x.MatrixId).HasColumnName("matrix_id");
+                b.Property(x => x.SubjectId).HasColumnName("subject_id").IsRequired();
+                b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
+                b.Property(x => x.DifficultyDistribution).HasColumnName("difficulty_distribution").HasColumnType("nvarchar(max)");
+                b.Property(x => x.TotalQuestions).HasColumnName("total_questions").IsRequired();
+                b.Property(x => x.GeneratedOn).HasColumnName("generated_on").IsRequired();
+
+                b.HasIndex(x => x.SubjectId);
+                b.HasIndex(x => x.GeneratedOn);
+
+                b.HasMany(x => x.ExamQuestions)
+                    .WithOne(eq => eq.ExamMatrix)
+                    .HasForeignKey(eq => eq.MatrixId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
-            b.Entity<Activity>(e =>
+            modelBuilder.Entity<ExamQuestion>(b =>
             {
-                e.ToTable("activities");
-                e.HasKey(x => x.ActivityId);
-                e.Property(x => x.Title).HasMaxLength(150);
+                b.ToTable("exam_questions");
+                b.HasKey(x => x.QuestionId);
+
+                b.Property(x => x.QuestionId).HasColumnName("question_id");
+                b.Property(x => x.SyllabusId).HasColumnName("syllabus_id");
+                b.Property(x => x.MatrixId).HasColumnName("matrix_id");
+                b.Property(x => x.QuestionText).HasColumnName("question_text").HasColumnType("nvarchar(max)").IsRequired();
+                b.Property(x => x.QuestionType).HasColumnName("question_type").HasConversion<string>().HasMaxLength(30).IsRequired();
+                b.Property(x => x.OptionsJson).HasColumnName("options_json").HasColumnType("nvarchar(max)");
+                b.Property(x => x.Answers).HasColumnName("answers").HasColumnType("nvarchar(max)").IsRequired();
+                b.Property(x => x.Marks).HasColumnName("marks");
+                b.Property(x => x.Points).HasColumnName("points").HasColumnType("decimal(5,2)");
+
+                b.HasIndex(x => x.SyllabusId);
+                b.HasIndex(x => x.MatrixId);
+                b.HasIndex(x => x.QuestionType);
             });
 
-            base.OnModelCreating(b);
+            modelBuilder.Entity<Activity>(b =>
+            {
+                b.ToTable("activities");
+                b.HasKey(x => x.ActivityId);
+
+                b.Property(x => x.ActivityId).HasColumnName("activity_id");
+                b.Property(x => x.ClassId).HasColumnName("class_id").IsRequired();
+                b.Property(x => x.ExamAttemptId).HasColumnName("exam_attempt_id");
+                b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
+                b.Property(x => x.ActivityType).HasColumnName("activity_type").HasMaxLength(50).IsRequired();
+                b.Property(x => x.Description).HasColumnName("description").HasColumnType("nvarchar(max)");
+                b.Property(x => x.DueDate).HasColumnName("due_date");
+                b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+
+                b.HasIndex(x => x.ClassId);
+                b.HasIndex(x => x.ExamAttemptId);
+                b.HasIndex(x => x.ActivityType);
+                b.HasIndex(x => x.DueDate);
+            });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -32,6 +32,7 @@ namespace Infrastructure.Config
 
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IStudentService, StudentService>();
 
             services.AddHttpClient();
 
