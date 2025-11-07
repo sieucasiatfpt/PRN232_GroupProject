@@ -1,177 +1,177 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\",
+  "WorkspaceRootPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\authunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\authunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\contentunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\contentunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\examunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\examunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\aiunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\aiunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\unitofworkbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\unitofworkbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\config\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\config\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\config\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iaiunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\authunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\authunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\contentunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\contentunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\examunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\examunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\aiunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\aiunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\unitofworkbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\unitofworkbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iaiunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iaiunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iauthunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iauthunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iauthunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\icontentunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\icontentunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\icontentunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iexamunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\interfaces\\repositories\\iexamunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iexamunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\contentdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\contentdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\contentdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\aidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\aidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\aidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\examdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\examdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\examdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\authdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\persistence\\authdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\authdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\classstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\classstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\classstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\aihistorychat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\aihistorychat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\aihistorychat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\aiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\aiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\aiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\syllabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\syllabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\syllabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\dtos\\student\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\dtos\\student\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\dtos\\student\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\enum\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\aicalllog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\aicalllog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\aicalllog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\examattempt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\examattempt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\examattempt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\examquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\examquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\examquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\exammatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\exammatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\exammatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\application\\dtos\\student\\classinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\application\\dtos\\student\\classinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18B18A2A-75C1-460F-B9E2-2F1DA6A0FA41}|Application\\Application.csproj|solutionrelative:application\\dtos\\student\\classinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\studentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\studentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\enum\\studentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\examattemptstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\examattemptstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\enum\\examattemptstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\questiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\questiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\enum\\questiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\enum\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\enum\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\code\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\teacherstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\domain\\enum\\teacherstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EF9EA7-77D4-4C00-8318-D94B889E8621}|Domain\\Domain.csproj|solutionrelative:domain\\enum\\teacherstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -182,192 +182,176 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
+              "Title": "AuthUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AuthUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\AuthUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AuthUnitOfWork.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\AuthUnitOfWork.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T03:17:33.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Repository.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\Repository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T03:17:25.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IAiUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T03:17:00.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Config\\DependencyInjection.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Config\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Config\\DependencyInjection.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Config\\DependencyInjection.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Config\\DependencyInjection.cs",
               "RelativeToolTip": "Infrastructure\\Config\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T03:21:56.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UnitOfWorkBase.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\UnitOfWorkBase.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UnitOfWorkBase.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\UnitOfWorkBase.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\UnitOfWorkBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:26:37.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "RelativeToolTip": "Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:24:58.827Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AiUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AiUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\AiUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AiUnitOfWork.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\AiUnitOfWork.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAgwBYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:17:59.203Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ExamUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ExamUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ExamUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ExamUnitOfWork.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\ExamUnitOfWork.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:17:50.3Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "ContentUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ContentUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ContentUnitOfWork.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ContentUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ContentUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ContentUnitOfWork.cs",
               "RelativeToolTip": "Infrastructure\\Repositories\\ContentUnitOfWork.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwB4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:17:42.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AuthUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\AuthUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AuthUnitOfWork.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\AuthUnitOfWork.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:17:33.656Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\Repository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Repository.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\Repository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\Repository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:17:25.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IAiUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
-              "RelativeToolTip": "Application\\Interfaces\\Repositories\\IAiUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:17:00.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T03:17:42.751Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "IExamUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IExamUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IExamUnitOfWork.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IExamUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IExamUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IExamUnitOfWork.cs",
               "RelativeToolTip": "Application\\Interfaces\\Repositories\\IExamUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:16:53.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T03:16:53.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T03:24:58.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UnitOfWorkBase.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\UnitOfWorkBase.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UnitOfWorkBase.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\UnitOfWorkBase.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\UnitOfWorkBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T03:26:37.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExamUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ExamUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ExamUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\ExamUnitOfWork.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\ExamUnitOfWork.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T03:17:50.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AiUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AiUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\AiUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Repositories\\AiUnitOfWork.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\AiUnitOfWork.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgwBYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T03:17:59.203Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "IContentUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IContentUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IContentUnitOfWork.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IContentUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IContentUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IContentUnitOfWork.cs",
               "RelativeToolTip": "Application\\Interfaces\\Repositories\\IContentUnitOfWork.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAgwBIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:16:46.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T03:16:46.344Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "IAuthUnitOfWork.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAuthUnitOfWork.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAuthUnitOfWork.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IAuthUnitOfWork.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAuthUnitOfWork.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IAuthUnitOfWork.cs",
               "RelativeToolTip": "Application\\Interfaces\\Repositories\\IAuthUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:16:39.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T03:16:39.36Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "IRepository.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IRepository.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IRepository.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IRepository.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IRepository.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Interfaces\\Repositories\\IRepository.cs",
               "RelativeToolTip": "Application\\Interfaces\\Repositories\\IRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAgwBoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T03:16:34.057Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T03:16:34.057Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 36,
               "Title": "ClassInfoDto.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\ClassInfoDto.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\ClassInfoDto.cs",
               "RelativeDocumentMoniker": "Application\\DTOs\\Student\\ClassInfoDto.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\ClassInfoDto.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\ClassInfoDto.cs",
               "RelativeToolTip": "Application\\DTOs\\Student\\ClassInfoDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -377,9 +361,9 @@
               "$type": "Document",
               "DocumentIndex": 26,
               "Title": "StudentDto.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\StudentDto.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\StudentDto.cs",
               "RelativeDocumentMoniker": "Application\\DTOs\\Student\\StudentDto.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\StudentDto.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\DTOs\\Student\\StudentDto.cs",
               "RelativeToolTip": "Application\\DTOs\\Student\\StudentDto.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -387,24 +371,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StudentService.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\StudentService.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Services\\StudentService.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\StudentService.cs",
-              "RelativeToolTip": "Infrastructure\\Services\\StudentService.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAYwOQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T01:28:24.866Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 16,
               "Title": "AiDbContext.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AiDbContext.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AiDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\AiDbContext.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AiDbContext.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AiDbContext.cs",
               "RelativeToolTip": "Infrastructure\\Persistence\\AiDbContext.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAA6wBoAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -414,22 +385,21 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "ContentDbContext.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ContentDbContext.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ContentDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\ContentDbContext.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ContentDbContext.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ContentDbContext.cs",
               "RelativeToolTip": "Infrastructure\\Persistence\\ContentDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T00:26:05.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-25T00:26:05.488Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "ExamDbContext.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ExamDbContext.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ExamDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\ExamDbContext.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ExamDbContext.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\ExamDbContext.cs",
               "RelativeToolTip": "Infrastructure\\Persistence\\ExamDbContext.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAIwBoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -439,9 +409,9 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "AuthDbContext.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AuthDbContext.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AuthDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\AuthDbContext.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AuthDbContext.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Persistence\\AuthDbContext.cs",
               "RelativeToolTip": "Infrastructure\\Persistence\\AuthDbContext.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -449,24 +419,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserService.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\UserService.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\UserService.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\UserService.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\UserService.cs",
               "RelativeToolTip": "Infrastructure\\Services\\UserService.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAYwBsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T00:18:15.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-25T00:18:15.124Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 41,
               "Title": "PaymentStatus.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentStatus.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enum\\PaymentStatus.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentStatus.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentStatus.cs",
               "RelativeToolTip": "Domain\\Enum\\PaymentStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -476,9 +445,9 @@
               "$type": "Document",
               "DocumentIndex": 40,
               "Title": "PaymentMethod.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentMethod.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentMethod.cs",
               "RelativeDocumentMoniker": "Domain\\Enum\\PaymentMethod.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentMethod.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\PaymentMethod.cs",
               "RelativeToolTip": "Domain\\Enum\\PaymentMethod.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -488,9 +457,9 @@
               "$type": "Document",
               "DocumentIndex": 39,
               "Title": "QuestionType.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\QuestionType.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\QuestionType.cs",
               "RelativeDocumentMoniker": "Domain\\Enum\\QuestionType.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\QuestionType.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\QuestionType.cs",
               "RelativeToolTip": "Domain\\Enum\\QuestionType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -500,9 +469,9 @@
               "$type": "Document",
               "DocumentIndex": 38,
               "Title": "ExamAttemptStatus.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\ExamAttemptStatus.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\ExamAttemptStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enum\\ExamAttemptStatus.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\ExamAttemptStatus.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\ExamAttemptStatus.cs",
               "RelativeToolTip": "Domain\\Enum\\ExamAttemptStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -512,9 +481,9 @@
               "$type": "Document",
               "DocumentIndex": 37,
               "Title": "StudentStatus.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\StudentStatus.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\StudentStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enum\\StudentStatus.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\StudentStatus.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\StudentStatus.cs",
               "RelativeToolTip": "Domain\\Enum\\StudentStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -524,9 +493,9 @@
               "$type": "Document",
               "DocumentIndex": 42,
               "Title": "TeacherStatus.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\TeacherStatus.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\TeacherStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enum\\TeacherStatus.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\TeacherStatus.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\TeacherStatus.cs",
               "RelativeToolTip": "Domain\\Enum\\TeacherStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -536,9 +505,9 @@
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "UserRole.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\UserRole.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\UserRole.cs",
               "RelativeDocumentMoniker": "Domain\\Enum\\UserRole.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\UserRole.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Enum\\UserRole.cs",
               "RelativeToolTip": "Domain\\Enum\\UserRole.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -548,9 +517,9 @@
               "$type": "Document",
               "DocumentIndex": 28,
               "Title": "Payment.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Payment.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Payment.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Payment.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Payment.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Payment.cs",
               "RelativeToolTip": "Domain\\Entities\\Payment.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAgwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -560,9 +529,9 @@
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "AIHistoryChat.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIHistoryChat.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIHistoryChat.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\AIHistoryChat.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIHistoryChat.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIHistoryChat.cs",
               "RelativeToolTip": "Domain\\Entities\\AIHistoryChat.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAwwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -572,9 +541,9 @@
               "$type": "Document",
               "DocumentIndex": 29,
               "Title": "AICallLog.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AICallLog.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AICallLog.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\AICallLog.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AICallLog.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AICallLog.cs",
               "RelativeToolTip": "Domain\\Entities\\AICallLog.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAowDIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -584,9 +553,9 @@
               "$type": "Document",
               "DocumentIndex": 22,
               "Title": "AIConfig.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIConfig.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIConfig.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\AIConfig.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIConfig.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\AIConfig.cs",
               "RelativeToolTip": "Domain\\Entities\\AIConfig.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAywCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -596,9 +565,9 @@
               "$type": "Document",
               "DocumentIndex": 30,
               "Title": "ExamAttempt.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamAttempt.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamAttempt.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\ExamAttempt.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamAttempt.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamAttempt.cs",
               "RelativeToolTip": "Domain\\Entities\\ExamAttempt.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAA7wBUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -608,9 +577,9 @@
               "$type": "Document",
               "DocumentIndex": 31,
               "Title": "ExamQuestion.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamQuestion.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamQuestion.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\ExamQuestion.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamQuestion.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamQuestion.cs",
               "RelativeToolTip": "Domain\\Entities\\ExamQuestion.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAAwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -620,9 +589,9 @@
               "$type": "Document",
               "DocumentIndex": 32,
               "Title": "ExamMatrix.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamMatrix.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamMatrix.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\ExamMatrix.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamMatrix.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ExamMatrix.cs",
               "RelativeToolTip": "Domain\\Entities\\ExamMatrix.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAowCQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -632,9 +601,9 @@
               "$type": "Document",
               "DocumentIndex": 33,
               "Title": "Activity.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Activity.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Activity.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Activity.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Activity.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Activity.cs",
               "RelativeToolTip": "Domain\\Entities\\Activity.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwCwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -644,9 +613,9 @@
               "$type": "Document",
               "DocumentIndex": 19,
               "Title": "ClassStudent.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ClassStudent.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ClassStudent.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\ClassStudent.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ClassStudent.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\ClassStudent.cs",
               "RelativeToolTip": "Domain\\Entities\\ClassStudent.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAiwBgAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -656,9 +625,9 @@
               "$type": "Document",
               "DocumentIndex": 25,
               "Title": "Class.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Class.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Class.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Class.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Class.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Class.cs",
               "RelativeToolTip": "Domain\\Entities\\Class.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAIwCgAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -668,9 +637,9 @@
               "$type": "Document",
               "DocumentIndex": 23,
               "Title": "Syllabus.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Syllabus.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Syllabus.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Syllabus.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Syllabus.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Syllabus.cs",
               "RelativeToolTip": "Domain\\Entities\\Syllabus.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowCMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -680,9 +649,9 @@
               "$type": "Document",
               "DocumentIndex": 24,
               "Title": "Subject.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Subject.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Subject.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Subject.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Subject.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Subject.cs",
               "RelativeToolTip": "Domain\\Entities\\Subject.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAUwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -692,9 +661,9 @@
               "$type": "Document",
               "DocumentIndex": 34,
               "Title": "Student.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Student.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Student.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Student.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Student.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Student.cs",
               "RelativeToolTip": "Domain\\Entities\\Student.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAywCcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -704,9 +673,9 @@
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "Teacher.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Teacher.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Teacher.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Teacher.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Teacher.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\Teacher.cs",
               "RelativeToolTip": "Domain\\Entities\\Teacher.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAswCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -716,13 +685,46 @@
               "$type": "Document",
               "DocumentIndex": 35,
               "Title": "User.cs",
-              "DocumentMoniker": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\User.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\User.cs",
-              "ToolTip": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\User.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Entities\\User.cs",
               "RelativeToolTip": "Domain\\Entities\\User.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-25T00:09:03.44Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\StudentService.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\StudentService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\StudentService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:28:24.866Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 190,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }
