@@ -1,5 +1,7 @@
 ﻿using Application.DTOs.Student;
 using Application.Interfaces;
+using Application.Interfaces.Repositories;
+using Domain.Entities;
 using Domain.Enum;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -13,32 +15,29 @@ namespace Infrastructure.Services
 {
     public class StudentService : IStudentService
     {
-        private readonly AuthDbContext _authDb;
-        private readonly ContentDbContext _contentDb;
+        private readonly IAuthUnitOfWork _authUow;
+        private readonly IContentUnitOfWork _contentUow;
 
-        public StudentService(AuthDbContext authDb, ContentDbContext contentDb)
+        public StudentService(IAuthUnitOfWork authUow, IContentUnitOfWork contentUow)
         {
-            _authDb = authDb;
-            _contentDb = contentDb;
+            _authUow = authUow;
+            _contentUow = contentUow;
         }
 
         public async Task<StudentDto> CreateStudentAsync(CreateStudentRequest request)
         {
-            // Check if user exists
-            var user = await _authDb.Users.FirstOrDefaultAsync(u => u.UserId == request.UserId);
+            var user = await _authUow.Users.FirstOrDefaultAsync(u => u.UserId == request.UserId);
             if (user == null)
                 throw new Exception("User not found");
 
-            // Check if user is a student
             if (user.Role != UserRole.Student)
                 throw new Exception("User is not a student");
 
-            // Check if student already exists for this user
-            var existingStudent = await _authDb.Students.FirstOrDefaultAsync(s => s.UserId == request.UserId);
+            var existingStudent = await _authUow.Students.FirstOrDefaultAsync(s => s.UserId == request.UserId);
             if (existingStudent != null)
                 throw new Exception("Student profile already exists for this user");
 
-            var student = new Domain.Entities.Student
+            var student = new Student
             {
                 UserId = request.UserId,
                 Name = request.Name,
@@ -47,17 +46,16 @@ namespace Infrastructure.Services
                 Status = StudentStatus.Active
             };
 
-            _authDb.Students.Add(student);
-            await _authDb.SaveChangesAsync();
+            await _authUow.Students.AddAsync(student);
+            await _authUow.SaveChangesAsync();
 
-            // If ClassId is provided, enroll the student in that class
             if (request.ClassId.HasValue)
             {
-                var classExists = await _contentDb.Classes.AnyAsync(c => c.ClassId == request.ClassId.Value);
+                var classExists = await _contentUow.Classes.AnyAsync(c => c.ClassId == request.ClassId.Value);
                 if (!classExists)
                     throw new Exception("Class not found");
 
-                var classStudent = new Domain.Entities.ClassStudent
+                var classStudent = new ClassStudent
                 {
                     ClassId = request.ClassId.Value,
                     StudentId = student.StudentId,
@@ -65,8 +63,8 @@ namespace Infrastructure.Services
                     EnrolledAt = DateTime.UtcNow
                 };
 
-                _contentDb.ClassStudents.Add(classStudent);
-                await _contentDb.SaveChangesAsync();
+                await _contentUow.ClassStudents.AddAsync(classStudent);
+                await _contentUow.SaveChangesAsync();
             }
 
             return await GetStudentByIdAsync(student.StudentId);
@@ -74,16 +72,16 @@ namespace Infrastructure.Services
 
         public async Task<StudentDto> GetStudentByIdAsync(int studentId)
         {
-            var student = await _authDb.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
+            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
             if (student == null)
                 throw new Exception("Student not found");
 
-            var user = await _authDb.Users.FirstOrDefaultAsync(u => u.UserId == student.UserId);
+            var user = await _authUow.Users.FirstOrDefaultAsync(u => u.UserId == student.UserId);
 
-            // Get all classes the student is enrolled in
-            var enrolledClasses = await _contentDb.ClassStudents
+            var enrolledClasses = await _contentUow.ClassStudents
+                .Query()
                 .Where(cs => cs.StudentId == studentId)
-                .Include(cs => cs.ClassId)
+                .Include(cs => cs.Class)
                 .Select(cs => new { cs.ClassId, cs.Class.Name })
                 .ToListAsync();
 
@@ -107,7 +105,7 @@ namespace Infrastructure.Services
 
         public async Task<StudentDto?> GetStudentByUserIdAsync(int userId)
         {
-            var student = await _authDb.Students.FirstOrDefaultAsync(s => s.UserId == userId);
+            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.UserId == userId);
             if (student == null)
                 return null;
 
@@ -116,7 +114,7 @@ namespace Infrastructure.Services
 
         public async Task<List<StudentDto>> GetAllStudentsAsync()
         {
-            var students = await _authDb.Students.ToListAsync();
+            var students = await _authUow.Students.GetAllAsync();
             var result = new List<StudentDto>();
 
             foreach (var student in students)
@@ -128,7 +126,6 @@ namespace Infrastructure.Services
                 }
                 catch
                 {
-                    // Skip students with errors
                     continue;
                 }
             }
@@ -138,8 +135,8 @@ namespace Infrastructure.Services
 
         public async Task<List<StudentDto>> GetStudentsByClassIdAsync(int classId)
         {
-            // Get student IDs enrolled in the class through ClassStudent join table
-            var studentIds = await _contentDb.ClassStudents
+            var studentIds = await _contentUow.ClassStudents
+                .Query()
                 .Where(cs => cs.ClassId == classId && cs.EnrollmentStatus == "Active")
                 .Select(cs => cs.StudentId)
                 .ToListAsync();
@@ -164,7 +161,7 @@ namespace Infrastructure.Services
 
         public async Task<StudentDto> UpdateStudentAsync(int studentId, UpdateStudentRequest request)
         {
-            var student = await _authDb.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
+            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
             if (student == null)
                 throw new Exception("Student not found");
 
@@ -180,99 +177,52 @@ namespace Infrastructure.Services
             if (request.EnrollmentDate.HasValue)
                 student.EnrollmentDate = request.EnrollmentDate.Value;
 
-            await _authDb.SaveChangesAsync();
+            _authUow.Students.Update(student);
+            await _authUow.SaveChangesAsync();
 
             return await GetStudentByIdAsync(studentId);
         }
 
-        public async Task<bool> EnrollStudentInClassAsync(int studentId, int classId)
-        {
-            // Verify student exists
-            var studentExists = await _authDb.Students.AnyAsync(s => s.StudentId == studentId);
-            if (!studentExists)
-                throw new Exception("Student not found");
-
-            // Verify class exists
-            var classExists = await _contentDb.Classes.AnyAsync(c => c.ClassId == classId);
-            if (!classExists)
-                throw new Exception("Class not found");
-
-            // Check if already enrolled
-            var alreadyEnrolled = await _contentDb.ClassStudents
-                .AnyAsync(cs => cs.StudentId == studentId && cs.ClassId == classId);
-
-            if (alreadyEnrolled)
-                throw new Exception("Student is already enrolled in this class");
-
-            var classStudent = new Domain.Entities.ClassStudent
-            {
-                ClassId = classId,
-                StudentId = studentId,
-                EnrollmentStatus = "Active",
-                EnrolledAt = DateTime.UtcNow
-            };
-
-            _contentDb.ClassStudents.Add(classStudent);
-            await _contentDb.SaveChangesAsync();
-
-            return true;
-        }
-
-        public async Task<bool> UnenrollStudentFromClassAsync(int studentId, int classId)
-        {
-            var classStudent = await _contentDb.ClassStudents
-                .FirstOrDefaultAsync(cs => cs.StudentId == studentId && cs.ClassId == classId);
-
-            if (classStudent == null)
-                throw new Exception("Enrollment not found");
-
-            _contentDb.ClassStudents.Remove(classStudent);
-            await _contentDb.SaveChangesAsync();
-
-            return true;
-        }
-
         public async Task<bool> DeleteStudentAsync(int studentId)
         {
-            var student = await _authDb.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
+            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
             if (student == null)
                 throw new Exception("Student not found");
 
-            // Remove all class enrollments first
-            var enrollments = await _contentDb.ClassStudents
-                .Where(cs => cs.StudentId == studentId)
-                .ToListAsync();
+            var enrollments = await _contentUow.ClassStudents
+                .FindAsync(cs => cs.StudentId == studentId);
 
-            _contentDb.ClassStudents.RemoveRange(enrollments);
-            await _contentDb.SaveChangesAsync();
+            _contentUow.ClassStudents.RemoveRange(enrollments);
+            await _contentUow.SaveChangesAsync();
 
-            // Remove student
-            _authDb.Students.Remove(student);
-            await _authDb.SaveChangesAsync();
+            _authUow.Students.Remove(student);
+            await _authUow.SaveChangesAsync();
 
             return true;
         }
 
         public async Task<bool> SuspendStudentAsync(int studentId)
         {
-            var student = await _authDb.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
+            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
             if (student == null)
                 throw new Exception("Student not found");
 
             student.Status = StudentStatus.Suspended;
-            await _authDb.SaveChangesAsync();
+            _authUow.Students.Update(student);
+            await _authUow.SaveChangesAsync();
 
             return true;
         }
 
         public async Task<bool> ActivateStudentAsync(int studentId)
         {
-            var student = await _authDb.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
+            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
             if (student == null)
                 throw new Exception("Student not found");
 
             student.Status = StudentStatus.Active;
-            await _authDb.SaveChangesAsync();
+            _authUow.Students.Update(student);
+            await _authUow.SaveChangesAsync();
 
             return true;
         }

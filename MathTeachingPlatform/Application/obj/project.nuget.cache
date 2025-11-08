@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KGoUq8nLDZs=",
+  "dgSpecHash": "uJnriYxRfps=",
   "success": true,
-  "projectFilePath": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\LAPTOP\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\LAPTOP\\.nuget\\packages\\octopus.client\\17.17.2398\\octopus.client.17.17.2398.nupkg.sha512",
-    "C:\\Users\\LAPTOP\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\Minh\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Minh\\.nuget\\packages\\octopus.client\\17.17.2398\\octopus.client.17.17.2398.nupkg.sha512",
+    "C:\\Users\\Minh\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
