@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Domain.Enum
 {
-    public enum PaymentMethod { Bank, VnPay, Cash }
+    public enum PaymentMethod { Bank, Momo, Cash }
 }
