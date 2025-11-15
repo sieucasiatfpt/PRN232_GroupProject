@@ -20,30 +20,30 @@ namespace Infrastructure.Services
 
         public async Task<PaymentWithMomoDto> CreatePaymentWithMomoAsync(CreatePaymentDto createPaymentDto)
         {
-            // Create payment entity
             var payment = new Payment
             {
                 TeacherId = createPaymentDto.TeacherId,
                 Amount = createPaymentDto.Amount,
-                Method = PaymentMethod.Momo, // Using VnPay for MOMO (or add Momo to enum)
+                Method = PaymentMethod.Momo,
                 Status = PaymentStatus.Pending,
                 PaymentDate = DateTime.UtcNow
             };
 
-            // Save payment to database
+    
             var savedPayment = await _paymentRepository.CreateAsync(payment);
 
-            // Create MOMO payment request
+     
             var orderInfo = new OrderInfoModel
             {
                 FullName = createPaymentDto.TeacherName,
                 Amount = createPaymentDto.Amount,
-                OrderInfo = createPaymentDto.Description ?? $"Payment for Teacher ID: {createPaymentDto.TeacherId}"
+                OrderInfo = createPaymentDto.Description ?? $"Payment for Teacher ID: {createPaymentDto.TeacherId}",
+                ExtraData = savedPayment.PaymentId.ToString() 
             };
 
             var momoResponse = await _momoService.CreatePaymentAsync(orderInfo);
 
-            // Return combined result
+   
             return new PaymentWithMomoDto
             {
                 PaymentId = savedPayment.PaymentId,
@@ -58,6 +58,7 @@ namespace Infrastructure.Services
                 MomoOrderId = momoResponse.OrderId ?? string.Empty
             };
         }
+
 
         public async Task<PaymentResponseDto?> GetPaymentByIdAsync(int paymentId)
         {

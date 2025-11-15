@@ -302,7 +302,7 @@
         }
       }
     },
-    "/api/Payment": {
+    "/payments": {
       "post": {
         "tags": [
           "Payment"
@@ -341,10 +341,44 @@
             "description": "OK"
           }
         }
+      }
+    },
+    "/payments/{id}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "put": {
         "tags": [
           "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -365,29 +399,6 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Payment/{id}": {
-      "get": {
-        "tags": [
-          "Payment"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -416,7 +427,7 @@
         }
       }
     },
-    "/api/Payment/teacher/{teacherId}": {
+    "/payments/by-teacher/{teacherId}": {
       "get": {
         "tags": [
           "Payment"
@@ -439,7 +450,7 @@
         }
       }
     },
-    "/api/Payment/status/{status}": {
+    "/payments/by-status/{status}": {
       "get": {
         "tags": [
           "Payment"
@@ -461,7 +472,7 @@
         }
       }
     },
-    "/api/Payment/{id}/status": {
+    "/payments/{id}/status": {
       "patch": {
         "tags": [
           "Payment"
@@ -503,7 +514,7 @@
         }
       }
     },
-    "/api/Payment/CreatePaymentUrl": {
+    "/payments/momo/create-url": {
       "post": {
         "tags": [
           "Payment"
@@ -534,10 +545,19 @@
         }
       }
     },
-    "/api/Payment/PaymentCallback": {
+    "/payments/Payment/PaymentCallback": {
       "get": {
         "tags": [
           "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -546,7 +566,7 @@
         }
       }
     },
-    "/api/Payment/MomoNotify": {
+    "/payments/momo/notify": {
       "post": {
         "tags": [
           "Payment"
@@ -775,7 +795,7 @@
         }
       }
     },
-    "/api/Subject": {
+    "/subjects": {
       "post": {
         "tags": [
           "Subject"
@@ -816,7 +836,7 @@
         }
       }
     },
-    "/api/Subject/{id}": {
+    "/subjects/{id}": {
       "get": {
         "tags": [
           "Subject"
@@ -900,7 +920,7 @@
         }
       }
     },
-    "/api/Subject/by-teacher/{teacherId}": {
+    "/subjects/by-teacher/{teacherId}": {
       "get": {
         "tags": [
           "Subject"
@@ -923,7 +943,7 @@
         }
       }
     },
-    "/api/Teacher": {
+    "/teachers": {
       "post": {
         "tags": [
           "Teacher"
@@ -964,7 +984,7 @@
         }
       }
     },
-    "/api/Teacher/{id}": {
+    "/teachers/{id}": {
       "get": {
         "tags": [
           "Teacher"
@@ -1048,7 +1068,7 @@
         }
       }
     },
-    "/api/Teacher/by-user/{userId}": {
+    "/teachers/by-user/{userId}": {
       "get": {
         "tags": [
           "Teacher"
@@ -1071,7 +1091,7 @@
         }
       }
     },
-    "/api/Teacher/by-department/{department}": {
+    "/teachers/by-department/{department}": {
       "get": {
         "tags": [
           "Teacher"
@@ -1093,7 +1113,7 @@
         }
       }
     },
-    "/api/Teacher/{id}/suspend": {
+    "/teachers/{id}/suspend": {
       "post": {
         "tags": [
           "Teacher"
@@ -1116,7 +1136,7 @@
         }
       }
     },
-    "/api/Teacher/{id}/activate": {
+    "/teachers/{id}/activate": {
       "post": {
         "tags": [
           "Teacher"
@@ -1333,6 +1353,10 @@
             "format": "double"
           },
           "orderInfo": {
+            "type": "string",
+            "nullable": true
+          },
+          "extraData": {
             "type": "string",
             "nullable": true
           }

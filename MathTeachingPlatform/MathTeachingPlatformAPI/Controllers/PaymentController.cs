@@ -1,4 +1,4 @@
-using Application.DTOs.Payment;
+﻿using Application.DTOs.Payment;
 using Application.Interfaces;
 using Application.Models.Payment;
 using Domain.Enum;
@@ -182,50 +182,63 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [HttpGet("momo/callback")]
-        public async Task<IActionResult> PaymentCallback()
+        [HttpGet("Payment/PaymentCallback")]
+        public async Task<IActionResult> PaymentCallback([FromQuery] string? url = null)
         {
             try
             {
-                var query = HttpContext.Request.Query;
-                var callbackResponse = await _momoService.HandlePaymentCallbackAsync(query);
+                var parameters = string.IsNullOrEmpty(url)
+                    ? HttpContext.Request.Query.ToDictionary(kvp => kvp.Key, kvp => kvp.Value)
+                    : Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(url);
 
-                if (callbackResponse.ErrorCode == 0)
+                var callback = new MomoCallbackResponseModel
                 {
-                    var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
-                    {
-                        PaymentId = int.Parse(callbackResponse.OrderId),
-                        Status = PaymentStatus.Completed
-                    });
+                    PartnerCode = parameters["partnerCode"],
+                    AccessKey = parameters["accessKey"],
+                    RequestId = parameters["requestId"],
+                    Amount = parameters["amount"],
+                    OrderId = parameters["orderId"],
+                    OrderInfo = parameters["orderInfo"],
+                    OrderType = parameters["orderType"],
+                    TransId = parameters["transId"],
+                    Message = parameters["message"],
+                    LocalMessage = parameters["localMessage"],
+                    ResponseTime = parameters["responseTime"],
+                    ErrorCode = int.TryParse(parameters["errorCode"], out var errorCode) ? errorCode : -1,
+                    PayType = parameters["payType"],
+                    ExtraData = parameters.ContainsKey("extraData") ? parameters["extraData"].ToString() ?? "" : ""
+                };
 
-                    if (updateResult == null)
-                    {
-                        return NotFound(new { success = false, message = "Payment not found" });
-                    }
+                string signature = parameters["signature"];
+                var isValidSignature = await _momoService.ValidateSignature(callback, signature);
+                if (!isValidSignature)
+                    return BadRequest(new { success = false, message = "Invalid signature" });
 
-                    return Ok(new { success = true, message = "Payment successful", data = callbackResponse });
-                }
-                else
+               
+                if (!int.TryParse(callback.ExtraData, out var paymentId))
+                    return BadRequest(new { success = false, message = "Invalid PaymentId in ExtraData" });
+
+                var status = callback.ErrorCode == 0 ? PaymentStatus.Completed : PaymentStatus.Failed;
+
+                var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
                 {
-                    var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
-                    {
-                        PaymentId = int.Parse(callbackResponse.OrderId),
-                        Status = PaymentStatus.Failed
-                    });
+                    PaymentId = paymentId,
+                    Status = status
+                });
 
-                    if (updateResult == null)
-                    {
-                        return NotFound(new { success = false, message = "Payment not found" });
-                    }
-
-                    return BadRequest(new { success = false, message = callbackResponse.Message, errorCode = callbackResponse.ErrorCode });
-                }
+                return status == PaymentStatus.Completed
+                    ? Ok(new { success = true, message = "Payment successful", data = callback })
+                    : BadRequest(new { success = false, message = callback.Message, errorCode = callback.ErrorCode });
             }
             catch (Exception ex)
             {
                 return BadRequest(new { success = false, error = ex.Message });
             }
         }
+
+
+
+
 
         [HttpPost("momo/notify")]
         public IActionResult MomoNotify()
