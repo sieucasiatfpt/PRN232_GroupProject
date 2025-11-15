@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("classes")] // Removed the /api prefix
     public class ClassController : ControllerBase
     {
         private readonly IClassService _classService;

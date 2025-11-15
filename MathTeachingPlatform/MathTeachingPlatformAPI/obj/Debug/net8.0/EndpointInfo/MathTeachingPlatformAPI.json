@@ -67,7 +67,7 @@
         }
       }
     },
-    "/api/Class": {
+    "/classes": {
       "post": {
         "tags": [
           "Class"
@@ -108,7 +108,7 @@
         }
       }
     },
-    "/api/Class/{id}": {
+    "/classes/{id}": {
       "get": {
         "tags": [
           "Class"
@@ -192,7 +192,7 @@
         }
       }
     },
-    "/api/Class/by-teacher/{teacherId}": {
+    "/classes/by-teacher/{teacherId}": {
       "get": {
         "tags": [
           "Class"
@@ -215,7 +215,7 @@
         }
       }
     },
-    "/api/Class/by-subject/{subjectId}": {
+    "/classes/by-subject/{subjectId}": {
       "get": {
         "tags": [
           "Class"
@@ -238,7 +238,7 @@
         }
       }
     },
-    "/api/Class/{classId}/enroll/{studentId}": {
+    "/classes/{classId}/enroll/{studentId}": {
       "post": {
         "tags": [
           "Class"
@@ -270,7 +270,7 @@
         }
       }
     },
-    "/api/Class/{classId}/unenroll/{studentId}": {
+    "/classes/{classId}/unenroll/{studentId}": {
       "delete": {
         "tags": [
           "Class"
