@@ -108,20 +108,6 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStudent(int id)
-        {
-            try
-            {
-                await _studentService.DeleteStudentAsync(id);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-        }
-
         [HttpPost("{id}/suspend")]
         public async Task<IActionResult> SuspendStudent(int id)
         {
