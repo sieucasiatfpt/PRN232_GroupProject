@@ -146,5 +146,12 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
+
+        [HttpGet("teachers/{teacherId}/active-classes")]
+        public async Task<IActionResult> HasActiveClassesAsync(int teacherId)
+        {
+            var hasActiveClasses = await _classService.HasActiveClassesAsync(teacherId);
+            return Ok(hasActiveClasses);
+        }
     }
 }

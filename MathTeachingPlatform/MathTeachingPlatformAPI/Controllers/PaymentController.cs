@@ -160,7 +160,7 @@ namespace MathTeachingPlatformAPI.Controllers
 
         // MOMO Integration
 
-        [HttpPost("momo/create-url")]
+        [HttpPost("momo/url")]
         public async Task<IActionResult> CreatePaymentUrl([FromBody] OrderInfoModel model)
         {
             try
@@ -182,7 +182,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [HttpGet("Payment/PaymentCallback")]
+        [HttpGet("payment/paymentCallback")]
         public async Task<IActionResult> PaymentCallback([FromQuery] string? url = null)
         {
             try

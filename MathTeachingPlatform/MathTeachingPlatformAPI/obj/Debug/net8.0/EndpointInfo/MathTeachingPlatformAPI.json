@@ -302,6 +302,29 @@
         }
       }
     },
+    "/classes/teachers/{teacherId}/active-classes": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/payments": {
       "post": {
         "tags": [
@@ -514,7 +537,7 @@
         }
       }
     },
-    "/payments/momo/create-url": {
+    "/payments/momo/url": {
       "post": {
         "tags": [
           "Payment"
@@ -545,7 +568,7 @@
         }
       }
     },
-    "/payments/Payment/PaymentCallback": {
+    "/payments/payment/paymentCallback": {
       "get": {
         "tags": [
           "Payment"

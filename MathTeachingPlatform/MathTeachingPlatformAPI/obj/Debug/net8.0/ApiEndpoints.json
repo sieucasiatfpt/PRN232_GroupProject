@@ -328,6 +328,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "HasActiveClassesAsync",
+    "RelativePath": "classes/teachers/{teacherId}/active-classes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
     "Method": "CreatePayment",
     "RelativePath": "payments",
@@ -461,8 +477,18 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "MomoNotify",
+    "RelativePath": "payments/momo/notify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
     "Method": "CreatePaymentUrl",
-    "RelativePath": "payments/momo/create-url",
+    "RelativePath": "payments/momo/url",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -477,18 +503,8 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "MomoNotify",
-    "RelativePath": "payments/momo/notify",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
     "Method": "PaymentCallback",
-    "RelativePath": "payments/Payment/PaymentCallback",
+    "RelativePath": "payments/payment/paymentCallback",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

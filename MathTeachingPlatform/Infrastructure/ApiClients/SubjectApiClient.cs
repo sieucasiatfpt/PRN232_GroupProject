@@ -3,8 +3,10 @@ using Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Infrastructure.ApiClients
@@ -22,7 +24,7 @@ namespace Infrastructure.ApiClients
         {
             try
             {
-                var response = await _httpClient.GetAsync($"api/subject/{subjectId}");
+                var response = await _httpClient.GetAsync($"subjects/{subjectId}");
                 if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadFromJsonAsync<SubjectDto>();
@@ -39,7 +41,7 @@ namespace Infrastructure.ApiClients
         {
             try
             {
-                var response = await _httpClient.GetAsync($"api/subject/{subjectId}");
+                var response = await _httpClient.GetAsync($"subjects/{subjectId}");
                 return response.IsSuccessStatusCode;
             }
             catch
@@ -53,5 +55,6 @@ namespace Infrastructure.ApiClients
             var subject = await GetSubjectByIdAsync(subjectId);
             return subject?.Title;
         }
+
     }
 }
