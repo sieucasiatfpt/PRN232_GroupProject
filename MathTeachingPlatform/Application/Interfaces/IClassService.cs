@@ -18,5 +18,6 @@ namespace Application.Interfaces
         Task<bool> DeleteClassAsync(int classId);
         Task<bool> EnrollStudentAsync(int classId, int studentId);
         Task<bool> UnenrollStudentAsync(int classId, int studentId);
+        Task<bool> HasActiveClassesAsync(int teacherId);
     }
 }

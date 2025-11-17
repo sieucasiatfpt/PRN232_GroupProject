@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Minh\\Desktop\\deploy\\PRN232_GroupProject\\MathTeachingPlatform\\",
+  "WorkspaceRootPath": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7FD38971-1EE1-424B-95BB-0922F76C4DE3}|MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj|c:\\users\\minh\\desktop\\deploy\\prn232_groupproject\\mathteachingplatform\\mathteachingplatformapi\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FD38971-1EE1-424B-95BB-0922F76C4DE3}|MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj|solutionrelative:mathteachingplatformapi\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|c:\\users\\minh\\desktop\\a\\prn232_groupproject\\mathteachingplatform\\infrastructure\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PaymentController.cs",
-              "DocumentMoniker": "C:\\Users\\Minh\\Desktop\\deploy\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\Controllers\\PaymentController.cs",
-              "RelativeDocumentMoniker": "MathTeachingPlatformAPI\\Controllers\\PaymentController.cs",
-              "ToolTip": "C:\\Users\\Minh\\Desktop\\deploy\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\Controllers\\PaymentController.cs",
-              "RelativeToolTip": "MathTeachingPlatformAPI\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "TeacherService.cs",
+              "DocumentMoniker": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\TeacherService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\TeacherService.cs",
+              "ToolTip": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\TeacherService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\TeacherService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwDgAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T08:33:42.814Z",
+              "WhenOpened": "2025-11-17T05:37:00.134Z",
               "EditorCaption": ""
             }
           ]

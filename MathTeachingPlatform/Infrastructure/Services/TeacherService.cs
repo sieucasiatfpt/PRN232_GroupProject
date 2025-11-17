@@ -16,11 +16,13 @@ namespace Infrastructure.Services
     {
         private readonly IAuthUnitOfWork _authUow;
         private readonly ISubjectApiClient _subjectApiClient;
+        private readonly IClassApiClient _classApiClient;
 
-        public TeacherService(IAuthUnitOfWork authUow, ISubjectApiClient subjectApiClient)
+        public TeacherService(IAuthUnitOfWork authUow, ISubjectApiClient subjectApiClient, IClassApiClient classApiClient)
         {
             _authUow = authUow;
             _subjectApiClient = subjectApiClient;
+            _classApiClient = classApiClient;
         }
 
         public async Task<TeacherDto> CreateTeacherAsync(CreateTeacherRequest request)
@@ -198,6 +200,11 @@ namespace Infrastructure.Services
             var teacher = await _authUow.Teachers.FirstOrDefaultAsync(t => t.TeacherId == teacherId);
             if (teacher == null)
                 throw new Exception("Teacher not found");
+
+            // Check if the teacher has any active classes via the ClassApiClient
+            var hasActiveClasses = await _classApiClient.HasActiveClassesAsync(teacherId);
+            if (hasActiveClasses)
+                throw new Exception("Cannot suspend teacher with active classes");
 
             teacher.Status = TeacherStatus.Inactive;
             _authUow.Teachers.Update(teacher);

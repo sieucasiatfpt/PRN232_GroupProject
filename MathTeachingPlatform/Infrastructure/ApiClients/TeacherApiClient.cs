@@ -22,7 +22,7 @@ namespace Infrastructure.ApiClients
         {
             try
             {
-                var response = await _httpClient.GetAsync($"api/teacher/{teacherId}");
+                var response = await _httpClient.GetAsync($"teachers/{teacherId}");
                 if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadFromJsonAsync<TeacherDto>();
@@ -39,7 +39,7 @@ namespace Infrastructure.ApiClients
         {
             try
             {
-                var response = await _httpClient.GetAsync($"api/teacher/{teacherId}");
+                var response = await _httpClient.GetAsync($"teacher/{teacherId}");
                 return response.IsSuccessStatusCode;
             }
             catch

@@ -32,322 +32,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "CreateClass",
-    "RelativePath": "api/Class",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Application.DTOs.Class.CreateClassRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "GetAllClasses",
-    "RelativePath": "api/Class",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "EnrollStudent",
-    "RelativePath": "api/Class/{classId}/enroll/{studentId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "classId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "studentId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "UnenrollStudent",
-    "RelativePath": "api/Class/{classId}/unenroll/{studentId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "classId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "studentId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "GetClassById",
-    "RelativePath": "api/Class/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "UpdateClass",
-    "RelativePath": "api/Class/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Application.DTOs.Class.UpdateClassRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "DeleteClass",
-    "RelativePath": "api/Class/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "GetClassesBySubjectId",
-    "RelativePath": "api/Class/by-subject/{subjectId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subjectId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
-    "Method": "GetClassesByTeacherId",
-    "RelativePath": "api/Class/by-teacher/{teacherId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "teacherId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "CreatePayment",
-    "RelativePath": "api/Payment",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createPaymentDto",
-        "Type": "Application.DTOs.Payment.CreatePaymentDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "GetAllPayments",
-    "RelativePath": "api/Payment",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "UpdatePayment",
-    "RelativePath": "api/Payment",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "updatePaymentDto",
-        "Type": "Application.DTOs.Payment.UpdatePaymentDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "GetPayment",
-    "RelativePath": "api/Payment/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "DeletePayment",
-    "RelativePath": "api/Payment/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "UpdatePaymentStatus",
-    "RelativePath": "api/Payment/{id}/status",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "status",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "CreatePaymentUrl",
-    "RelativePath": "api/Payment/CreatePaymentUrl",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Application.Models.Payment.OrderInfoModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "MomoNotify",
-    "RelativePath": "api/Payment/MomoNotify",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "PaymentCallback",
-    "RelativePath": "api/Payment/PaymentCallback",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "GetPaymentsByStatus",
-    "RelativePath": "api/Payment/status/{status}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "status",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "GetPaymentsByTeacher",
-    "RelativePath": "api/Payment/teacher/{teacherId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "teacherId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
     "Method": "CreateStudent",
     "RelativePath": "api/Student",
@@ -405,22 +89,6 @@
       {
         "Name": "request",
         "Type": "Application.DTOs.Student.UpdateStudentRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "DeleteStudent",
-    "RelativePath": "api/Student/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -491,9 +159,352 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "CreateClass",
+    "RelativePath": "classes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Class.CreateClassRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "GetAllClasses",
+    "RelativePath": "classes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "EnrollStudent",
+    "RelativePath": "classes/{classId}/enroll/{studentId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "UnenrollStudent",
+    "RelativePath": "classes/{classId}/unenroll/{studentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "GetClassById",
+    "RelativePath": "classes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "UpdateClass",
+    "RelativePath": "classes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Class.UpdateClassRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "DeleteClass",
+    "RelativePath": "classes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "GetClassesBySubjectId",
+    "RelativePath": "classes/by-subject/{subjectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "GetClassesByTeacherId",
+    "RelativePath": "classes/by-teacher/{teacherId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
+    "Method": "HasActiveClassesAsync",
+    "RelativePath": "classes/teachers/{teacherId}/active-classes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "CreatePayment",
+    "RelativePath": "payments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createPaymentDto",
+        "Type": "Application.DTOs.Payment.CreatePaymentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "GetAllPayments",
+    "RelativePath": "payments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "GetPayment",
+    "RelativePath": "payments/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "UpdatePayment",
+    "RelativePath": "payments/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatePaymentDto",
+        "Type": "Application.DTOs.Payment.UpdatePaymentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "DeletePayment",
+    "RelativePath": "payments/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "UpdatePaymentStatus",
+    "RelativePath": "payments/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "GetPaymentsByStatus",
+    "RelativePath": "payments/by-status/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "GetPaymentsByTeacher",
+    "RelativePath": "payments/by-teacher/{teacherId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "MomoNotify",
+    "RelativePath": "payments/momo/notify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "CreatePaymentUrl",
+    "RelativePath": "payments/momo/url",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Application.Models.Payment.OrderInfoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "PaymentCallback",
+    "RelativePath": "payments/payment/paymentCallback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "url",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.SubjectController",
     "Method": "CreateSubject",
-    "RelativePath": "api/Subject",
+    "RelativePath": "subjects",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -509,7 +520,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.SubjectController",
     "Method": "GetAllSubjects",
-    "RelativePath": "api/Subject",
+    "RelativePath": "subjects",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -519,7 +530,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.SubjectController",
     "Method": "GetSubjectById",
-    "RelativePath": "api/Subject/{id}",
+    "RelativePath": "subjects/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -535,7 +546,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.SubjectController",
     "Method": "UpdateSubject",
-    "RelativePath": "api/Subject/{id}",
+    "RelativePath": "subjects/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -556,7 +567,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.SubjectController",
     "Method": "DeleteSubject",
-    "RelativePath": "api/Subject/{id}",
+    "RelativePath": "subjects/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -572,7 +583,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.SubjectController",
     "Method": "GetSubjectsByTeacherId",
-    "RelativePath": "api/Subject/by-teacher/{teacherId}",
+    "RelativePath": "subjects/by-teacher/{teacherId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -588,7 +599,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "CreateTeacher",
-    "RelativePath": "api/Teacher",
+    "RelativePath": "teachers",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -604,7 +615,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "GetAllTeachers",
-    "RelativePath": "api/Teacher",
+    "RelativePath": "teachers",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -614,7 +625,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "GetTeacherById",
-    "RelativePath": "api/Teacher/{id}",
+    "RelativePath": "teachers/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -630,7 +641,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "UpdateTeacher",
-    "RelativePath": "api/Teacher/{id}",
+    "RelativePath": "teachers/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -651,7 +662,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "DeleteTeacher",
-    "RelativePath": "api/Teacher/{id}",
+    "RelativePath": "teachers/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -667,7 +678,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "ActivateTeacher",
-    "RelativePath": "api/Teacher/{id}/activate",
+    "RelativePath": "teachers/{id}/activate",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -683,7 +694,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "SuspendTeacher",
-    "RelativePath": "api/Teacher/{id}/suspend",
+    "RelativePath": "teachers/{id}/suspend",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -699,7 +710,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "GetTeachersByDepartment",
-    "RelativePath": "api/Teacher/by-department/{department}",
+    "RelativePath": "teachers/by-department/{department}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -715,7 +726,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "GetTeacherByUserId",
-    "RelativePath": "api/Teacher/by-user/{userId}",
+    "RelativePath": "teachers/by-user/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
