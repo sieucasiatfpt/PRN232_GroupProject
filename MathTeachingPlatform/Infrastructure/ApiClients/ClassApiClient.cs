@@ -1,9 +1,11 @@
+using Application.DTOs.Teacher;
 using Application.Interfaces;
 using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Infrastructure.ApiClients
 {
@@ -31,6 +33,23 @@ namespace Infrastructure.ApiClients
             catch
             {
                 return false;
+            }
+        }
+
+        public async Task<List<ClassInfoDto>> GetClassesByTeacherIdAsync(int teacherId)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"classes/by-teacher/{teacherId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<List<ClassInfoDto>>() ?? new List<ClassInfoDto>();
+                }
+                return new List<ClassInfoDto>();
+            }
+            catch
+            {
+                return new List<ClassInfoDto>();
             }
         }
     }

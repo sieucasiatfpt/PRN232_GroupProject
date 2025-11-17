@@ -181,16 +181,17 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
         [HttpGet("payment/paymentCallback")]
         public async Task<IActionResult> PaymentCallback([FromQuery] string? url = null)
         {
             try
             {
+                // If a full URL is provided, extract the query string from it
                 var parameters = string.IsNullOrEmpty(url)
                     ? HttpContext.Request.Query.ToDictionary(kvp => kvp.Key, kvp => kvp.Value)
-                    : Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(url);
+                    : Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(url).Query);
 
+                // Map query parameters to the callback response model
                 var callback = new MomoCallbackResponseModel
                 {
                     PartnerCode = parameters["partnerCode"],
@@ -209,23 +210,27 @@ namespace MathTeachingPlatformAPI.Controllers
                     ExtraData = parameters.ContainsKey("extraData") ? parameters["extraData"].ToString() ?? "" : ""
                 };
 
+                // Validate the signature
                 string signature = parameters["signature"];
                 var isValidSignature = await _momoService.ValidateSignature(callback, signature);
                 if (!isValidSignature)
                     return BadRequest(new { success = false, message = "Invalid signature" });
 
-               
+                // Extract payment ID from ExtraData
                 if (!int.TryParse(callback.ExtraData, out var paymentId))
                     return BadRequest(new { success = false, message = "Invalid PaymentId in ExtraData" });
 
+                // Determine payment status
                 var status = callback.ErrorCode == 0 ? PaymentStatus.Completed : PaymentStatus.Failed;
 
+                // Update payment status
                 var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
                 {
                     PaymentId = paymentId,
                     Status = status
                 });
 
+                // Return appropriate response
                 return status == PaymentStatus.Completed
                     ? Ok(new { success = true, message = "Payment successful", data = callback })
                     : BadRequest(new { success = false, message = callback.Message, errorCode = callback.ErrorCode });

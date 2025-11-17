@@ -1,4 +1,5 @@
 using Application.DTOs.Subject;
+using Application.DTOs.Teacher;
 using Application.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -56,5 +57,27 @@ namespace Infrastructure.ApiClients
             return subject?.Title;
         }
 
+        public async Task<List<SubjectInfoDto>> GetSubjectsByTeacherIdAsync(int teacherId)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"subjects/by-teacher/{teacherId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var subjects = await response.Content.ReadFromJsonAsync<List<SubjectDto>>();
+                    return subjects?.Select(s => new SubjectInfoDto
+                    {
+                        SubjectId = s.SubjectId,
+                        Title = s.Title,
+                        Description = s.Description
+                    }).ToList() ?? new List<SubjectInfoDto>();
+                }
+                return new List<SubjectInfoDto>();
+            }
+            catch
+            {
+                return new List<SubjectInfoDto>();
+            }
+        }
     }
 }
