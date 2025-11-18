@@ -5390,23 +5390,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Minh\\.nuget\\packages\\": {},
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
+      "projectUniqueName": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
       "projectName": "MathTeachingPlatformAPI",
-      "projectPath": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
-      "packagesPath": "C:\\Users\\Minh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\obj\\",
+      "projectPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Minh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5415,18 +5415,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj"
+            "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj": {
+              "projectPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj"
             },
-            "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj"
+            "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -5485,7 +5484,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
