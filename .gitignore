@@ -408,6 +408,39 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.bak
+*.ncb
+*.opensdf
+*.sdf
+*.vssscc
+*.vsscc
+*.vspscc
+*.log
+*.ide
+*.pdb
+*.obj
+*.exe
+*.dll
+*.com
+*.lib
+*.nupkg
+*.config.old
+*.cs.stash
+
+# Debugging
+[Bb]in/
+[Oo]bj/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
 # JetBrains Rider
 *.sln.iml
 
