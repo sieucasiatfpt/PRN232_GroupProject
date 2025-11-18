@@ -29,7 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**\*.cs" />
+    <Compile Remove="Migrations\AiMigrations\**\*.cs" />
+    <Compile Remove="Migrations\AuthMigrations\**\*.cs" />
+    <Compile Remove="Migrations\ContentMigrations\**\*.cs" />
+    <Compile Remove="Migrations\ExamMigrations\**\*.cs" />
   </ItemGroup>
 
 </Project>
