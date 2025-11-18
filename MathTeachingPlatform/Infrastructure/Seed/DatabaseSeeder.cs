@@ -34,8 +34,24 @@ namespace Infrastructure.Seed
                 await aiDb.Database.MigrateAsync();
                 logger.LogInformation("Databases migrated successfully.");
             }
+            else
+            {
+                logger.LogInformation("Ensuring databases created (no migrations)...");
+                await authDb.Database.EnsureCreatedAsync();
+                await contentDb.Database.EnsureCreatedAsync();
+                await examDb.Database.EnsureCreatedAsync();
+                await aiDb.Database.EnsureCreatedAsync();
+                logger.LogInformation("Databases ensured created.");
+            }
 
-            await SeedAdminUserAsync(authDb, logger);
+            try
+            {
+                await SeedAdminUserAsync(authDb, logger);
+            }
+            catch (Exception ex)
+            {
+                logger.LogWarning("Skipping admin seeding due to database unavailability or missing schema: {Message}", ex.Message);
+            }
         }
 
         private static async Task SeedAdminUserAsync(AuthDbContext db, ILogger logger)
