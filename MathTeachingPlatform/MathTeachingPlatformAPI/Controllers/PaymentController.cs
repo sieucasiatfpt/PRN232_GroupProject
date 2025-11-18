@@ -1,4 +1,4 @@
-using Application.DTOs.Payment;
+﻿using Application.DTOs.Payment;
 using Application.Interfaces;
 using Application.Models.Payment;
 using Domain.Enum;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("payments")]
     public class PaymentController : ControllerBase
     {
         private readonly IMomoService _momoService;
@@ -24,14 +24,17 @@ namespace MathTeachingPlatformAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePayment([FromBody] CreatePaymentDto createPaymentDto)
         {
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
+
             try
             {
                 var result = await _paymentService.CreatePaymentWithMomoAsync(createPaymentDto);
-                return Ok(result);
+                return CreatedAtAction(nameof(GetPayment), new { id = result.PaymentId }, result);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error creating payment", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
 
@@ -42,13 +45,13 @@ namespace MathTeachingPlatformAPI.Controllers
             {
                 var payment = await _paymentService.GetPaymentByIdAsync(id);
                 if (payment == null)
-                    return NotFound(new { Message = "Payment not found" });
+                    return NotFound(new { error = "Payment not found" });
 
                 return Ok(payment);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error retrieving payment", Error = ex.Message });
+                return NotFound(new { error = ex.Message });
             }
         }
 
@@ -62,11 +65,11 @@ namespace MathTeachingPlatformAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error retrieving payments", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
 
-        [HttpGet("teacher/{teacherId}")]
+        [HttpGet("by-teacher/{teacherId}")]
         public async Task<IActionResult> GetPaymentsByTeacher(int teacherId)
         {
             try
@@ -76,11 +79,11 @@ namespace MathTeachingPlatformAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error retrieving payments", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
 
-        [HttpGet("status/{status}")]
+        [HttpGet("by-status/{status}")]
         public async Task<IActionResult> GetPaymentsByStatus(PaymentStatus status)
         {
             try
@@ -90,24 +93,28 @@ namespace MathTeachingPlatformAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error retrieving payments", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdatePayment([FromBody] UpdatePaymentDto updatePaymentDto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePayment(int id, [FromBody] UpdatePaymentDto updatePaymentDto)
         {
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
+
             try
             {
+                updatePaymentDto.PaymentId = id;
                 var updatedPayment = await _paymentService.UpdatePaymentAsync(updatePaymentDto);
                 if (updatedPayment == null)
-                    return NotFound(new { Message = "Payment not found" });
+                    return NotFound(new { error = "Payment not found" });
 
                 return Ok(updatedPayment);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error updating payment", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
 
@@ -116,24 +123,21 @@ namespace MathTeachingPlatformAPI.Controllers
         {
             try
             {
-                // Create a DTO with only the PaymentId and Status
                 var updatePaymentDto = new UpdatePaymentDto
                 {
                     PaymentId = id,
                     Status = status
                 };
 
-                // Call the service to update the payment status
                 var updatedPayment = await _paymentService.UpdatePaymentAsync(updatePaymentDto);
-
                 if (updatedPayment == null)
-                    return NotFound(new { Message = "Payment not found" });
+                    return NotFound(new { error = "Payment not found" });
 
-                return Ok(new { Message = "Payment status updated successfully", Payment = updatedPayment });
+                return Ok(new { message = "Payment status updated successfully", Payment = updatedPayment });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error updating payment status", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
 
@@ -144,19 +148,19 @@ namespace MathTeachingPlatformAPI.Controllers
             {
                 var result = await _paymentService.DeletePaymentAsync(id);
                 if (!result)
-                    return NotFound(new { Message = "Payment not found" });
+                    return NotFound(new { error = "Payment not found" });
 
-                return Ok(new { Message = "Payment deleted successfully" });
+                return NoContent();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Error deleting payment", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
 
-        // MOMO Integration (Existing methods)
+        // MOMO Integration
 
-        [HttpPost("CreatePaymentUrl")]
+        [HttpPost("momo/url")]
         public async Task<IActionResult> CreatePaymentUrl([FromBody] OrderInfoModel model)
         {
             try
@@ -174,68 +178,77 @@ namespace MathTeachingPlatformAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Internal server error", Error = ex.Message });
+                return BadRequest(new { error = ex.Message });
             }
         }
-
-        [HttpGet("PaymentCallback")]
-        public async Task<IActionResult> PaymentCallback()
+        [HttpGet("payment/paymentCallback")]
+        public async Task<IActionResult> PaymentCallback([FromQuery] string? url = null)
         {
             try
             {
-                // Access the query parameters directly from HttpContext.Request.Query
-                var query = HttpContext.Request.Query;
+                // If a full URL is provided, extract the query string from it
+                var parameters = string.IsNullOrEmpty(url)
+                    ? HttpContext.Request.Query.ToDictionary(kvp => kvp.Key, kvp => kvp.Value)
+                    : Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(url).Query);
 
-                // Validate and process the callback using the MoMo service
-                var callbackResponse = await _momoService.HandlePaymentCallbackAsync(query);
-
-                // Check the error code to determine the payment status
-                if (callbackResponse.ErrorCode == 0)
+                // Map query parameters to the callback response model
+                var callback = new MomoCallbackResponseModel
                 {
-                    // Update the payment status to "Completed" in your system
-                    var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
-                    {
-                        PaymentId = int.Parse(callbackResponse.OrderId), // Assuming OrderId maps to PaymentId
-                        Status = PaymentStatus.Completed
-                    });
+                    PartnerCode = parameters["partnerCode"],
+                    AccessKey = parameters["accessKey"],
+                    RequestId = parameters["requestId"],
+                    Amount = parameters["amount"],
+                    OrderId = parameters["orderId"],
+                    OrderInfo = parameters["orderInfo"],
+                    OrderType = parameters["orderType"],
+                    TransId = parameters["transId"],
+                    Message = parameters["message"],
+                    LocalMessage = parameters["localMessage"],
+                    ResponseTime = parameters["responseTime"],
+                    ErrorCode = int.TryParse(parameters["errorCode"], out var errorCode) ? errorCode : -1,
+                    PayType = parameters["payType"],
+                    ExtraData = parameters.ContainsKey("extraData") ? parameters["extraData"].ToString() ?? "" : ""
+                };
 
-                    if (updateResult == null)
-                    {
-                        return NotFound(new { success = false, message = "Payment not found" });
-                    }
+                // Validate the signature
+                string signature = parameters["signature"];
+                var isValidSignature = await _momoService.ValidateSignature(callback, signature);
+                if (!isValidSignature)
+                    return BadRequest(new { success = false, message = "Invalid signature" });
 
-                    return Ok(new { success = true, message = "Payment successful", data = callbackResponse });
-                }
-                else
+                // Extract payment ID from ExtraData
+                if (!int.TryParse(callback.ExtraData, out var paymentId))
+                    return BadRequest(new { success = false, message = "Invalid PaymentId in ExtraData" });
+
+                // Determine payment status
+                var status = callback.ErrorCode == 0 ? PaymentStatus.Completed : PaymentStatus.Failed;
+
+                // Update payment status
+                var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
                 {
-                    // Update the payment status to "Failed" in your system
-                    var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
-                    {
-                        PaymentId = int.Parse(callbackResponse.OrderId),
-                        Status = PaymentStatus.Failed
-                    });
+                    PaymentId = paymentId,
+                    Status = status
+                });
 
-                    if (updateResult == null)
-                    {
-                        return NotFound(new { success = false, message = "Payment not found" });
-                    }
-
-                    return BadRequest(new { success = false, message = callbackResponse.Message, errorCode = callbackResponse.ErrorCode });
-                }
+                // Return appropriate response
+                return status == PaymentStatus.Completed
+                    ? Ok(new { success = true, message = "Payment successful", data = callback })
+                    : BadRequest(new { success = false, message = callback.Message, errorCode = callback.ErrorCode });
             }
             catch (Exception ex)
             {
-                // Log the exception and return an error response
-                return StatusCode(500, new { success = false, message = "Internal server error", error = ex.Message });
+                return BadRequest(new { success = false, error = ex.Message });
             }
         }
 
-        [HttpPost("MomoNotify")]
+
+
+
+
+        [HttpPost("momo/notify")]
         public IActionResult MomoNotify()
         {
             var response = _momoService.PaymentExecuteAsync(Request.Query);
-            // Process the payment notification here
-            // Update order status, send confirmation emails, etc.
             return Ok("success");
         }
     }

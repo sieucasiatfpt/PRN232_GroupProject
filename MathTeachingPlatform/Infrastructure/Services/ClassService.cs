@@ -337,5 +337,12 @@ namespace Infrastructure.Services
 
             return true;
         }
+        public async Task<bool> HasActiveClassesAsync(int teacherId)
+        {
+            var activeClasses = await _contentUow.Classes
+                .AnyAsync(c => c.TeacherId == teacherId &&
+                              (c.EndDate == null || c.EndDate > DateTime.UtcNow));
+            return activeClasses;
+        }
     }
 }

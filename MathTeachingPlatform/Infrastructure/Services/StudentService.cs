@@ -183,24 +183,6 @@ namespace Infrastructure.Services
             return await GetStudentByIdAsync(studentId);
         }
 
-        public async Task<bool> DeleteStudentAsync(int studentId)
-        {
-            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
-            if (student == null)
-                throw new Exception("Student not found");
-
-            var enrollments = await _contentUow.ClassStudents
-                .FindAsync(cs => cs.StudentId == studentId);
-
-            _contentUow.ClassStudents.RemoveRange(enrollments);
-            await _contentUow.SaveChangesAsync();
-
-            _authUow.Students.Remove(student);
-            await _authUow.SaveChangesAsync();
-
-            return true;
-        }
-
         public async Task<bool> SuspendStudentAsync(int studentId)
         {
             var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);

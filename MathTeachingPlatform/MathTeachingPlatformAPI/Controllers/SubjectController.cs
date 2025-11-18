@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("subjects")]
     public class SubjectController : ControllerBase
     {
         private readonly ISubjectService _subjectService;

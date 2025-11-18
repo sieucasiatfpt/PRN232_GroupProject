@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("teachers")]
     public class TeacherController : ControllerBase
     {
         private readonly ITeacherService _teacherService;
@@ -46,6 +46,20 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllTeachers()
+        {
+            try
+            {
+                var teachers = await _teacherService.GetAllTeachersAsync();
+                return Ok(teachers);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
         [HttpGet("by-user/{userId}")]
         public async Task<IActionResult> GetTeacherByUserId(int userId)
         {
@@ -56,20 +70,6 @@ namespace MathTeachingPlatformAPI.Controllers
                     return NotFound(new { error = "Teacher not found for this user" });
 
                 return Ok(teacher);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllTeachers()
-        {
-            try
-            {
-                var teachers = await _teacherService.GetAllTeachersAsync();
-                return Ok(teachers);
             }
             catch (Exception ex)
             {

@@ -15,7 +15,6 @@ namespace Application.Interfaces
         Task<List<StudentDto>> GetAllStudentsAsync();
         Task<List<StudentDto>> GetStudentsByClassIdAsync(int classId);
         Task<StudentDto> UpdateStudentAsync(int studentId, UpdateStudentRequest request);
-        Task<bool> DeleteStudentAsync(int studentId);
         Task<bool> SuspendStudentAsync(int studentId);
         Task<bool> ActivateStudentAsync(int studentId);
     }

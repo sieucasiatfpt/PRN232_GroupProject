@@ -7,7 +7,8 @@ namespace Application.Interfaces
     {
         Task<MomoCreatePaymentResponseModel> CreatePaymentAsync(OrderInfoModel model);
         MomoExecuteResponseModel PaymentExecuteAsync(IQueryCollection collection);
-
         Task<MomoCallbackResponseModel> HandlePaymentCallbackAsync(IQueryCollection query);
+
+        Task<bool> ValidateSignature(MomoCallbackResponseModel callbackResponse, string providedSignature);
     }
 }

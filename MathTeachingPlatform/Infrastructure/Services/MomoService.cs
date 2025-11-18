@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 namespace Infrastructure.Services
 {
@@ -26,6 +27,9 @@ namespace Infrastructure.Services
                 model.OrderId = DateTime.UtcNow.Ticks.ToString();
             }
 
+            // Gán PaymentId vào ExtraData nếu có
+            var extraData = model.ExtraData ?? "";
+
             model.OrderInfo = "Khách hàng: " + model.FullName + ". Nội dung: " + model.OrderInfo;
 
             var rawData =
@@ -37,7 +41,7 @@ namespace Infrastructure.Services
                 $"&orderInfo={model.OrderInfo}" +
                 $"&returnUrl={_options.Value.ReturnUrl}" +
                 $"&notifyUrl={_options.Value.NotifyUrl}" +
-                $"&extraData=";
+                $"&extraData={extraData}";
 
             var signature = ComputeHmacSha256(rawData, _options.Value.SecretKey);
 
@@ -56,7 +60,7 @@ namespace Infrastructure.Services
                 amount = model.Amount.ToString(),
                 orderInfo = model.OrderInfo,
                 requestId = model.OrderId,
-                extraData = "",
+                extraData = extraData,
                 signature = signature
             };
 
@@ -66,6 +70,7 @@ namespace Infrastructure.Services
             var momoResponse = JsonConvert.DeserializeObject<MomoCreatePaymentResponseModel>(response.Content);
             return momoResponse;
         }
+
 
         public MomoExecuteResponseModel PaymentExecuteAsync(IQueryCollection collection)
         {
@@ -81,22 +86,6 @@ namespace Infrastructure.Services
             };
         }
 
-        private string ComputeHmacSha256(string message, string secretKey)
-        {
-            var keyBytes = Encoding.UTF8.GetBytes(secretKey);
-            var messageBytes = Encoding.UTF8.GetBytes(message);
-
-            byte[] hashBytes;
-
-            using (var hmac = new HMACSHA256(keyBytes))
-            {
-                hashBytes = hmac.ComputeHash(messageBytes);
-            }
-
-            var hashString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
-            return hashString;
-        }
 
         public async Task<MomoCallbackResponseModel> HandlePaymentCallbackAsync(IQueryCollection query)
         {
@@ -119,9 +108,22 @@ namespace Infrastructure.Services
 
             // Recreate the raw data string for signature validation
             var rawData =
-                $"partnerCode={partnerCode}&accessKey={accessKey}&requestId={requestId}&amount={amount}&orderId={orderId}" +
-                $"&orderInfo={orderInfo}&orderType={orderType}&transId={transId}&message={message}&localMessage={localMessage}" +
-                $"&responseTime={responseTime}&errorCode={errorCode}&payType={payType}&extraData={extraData}";
+       $"partnerCode={partnerCode}" +
+       $"&accessKey={accessKey}" +
+       $"&requestId={requestId}" +
+       $"&amount={amount}" +
+       $"&orderId={orderId}" +
+       $"&orderInfo={HttpUtility.UrlDecode(orderInfo)}" +
+       $"&orderType={orderType}" +
+       $"&transId={transId}" +
+       $"&message={HttpUtility.UrlDecode(message)}" +
+       $"&localMessage={HttpUtility.UrlDecode(localMessage)}" +
+       $"&responseTime={responseTime}" +
+       $"&errorCode={errorCode}" +
+       $"&payType={payType}" +
+       $"&extraData={extraData}";
+
+
 
             // Validate the signature
             var computedSignature = ComputeHmacSha256(rawData, _options.Value.SecretKey);
@@ -149,9 +151,63 @@ namespace Infrastructure.Services
                 ExtraData = extraData
             };
 
-            // You can add additional logic here, such as updating the order status in your database
+        
 
             return callbackResponse;
         }
+
+
+        public async Task<bool> ValidateSignature(MomoCallbackResponseModel callbackResponse, string providedSignature)
+        {
+            callbackResponse.ExtraData ??= "";
+
+            // Decode fields trước khi tạo rawData
+            var orderInfo = HttpUtility.UrlDecode(callbackResponse.OrderInfo);
+            var message = HttpUtility.UrlDecode(callbackResponse.Message);
+            var localMessage = HttpUtility.UrlDecode(callbackResponse.LocalMessage);
+
+            // Tạo rawData theo thứ tự chuẩn của MoMo
+            var rawData =
+                $"partnerCode={callbackResponse.PartnerCode}" +
+                $"&accessKey={callbackResponse.AccessKey}" +
+                $"&requestId={callbackResponse.RequestId}" +
+                $"&amount={callbackResponse.Amount}" +
+                $"&orderId={callbackResponse.OrderId}" +
+                $"&orderInfo={orderInfo}" +
+                $"&orderType={callbackResponse.OrderType}" +
+                $"&transId={callbackResponse.TransId}" +
+                $"&message={message}" +
+                $"&localMessage={localMessage}" +
+                $"&responseTime={callbackResponse.ResponseTime}" +
+                $"&errorCode={callbackResponse.ErrorCode}" +
+                $"&payType={callbackResponse.PayType}" +
+                $"&extraData={callbackResponse.ExtraData}";
+
+           // Console.WriteLine($"Raw Data: {rawData}");
+
+            var computedSignature = ComputeHmacSha256(rawData, _options.Value.SecretKey);
+
+           // Console.WriteLine($"Computed Signature: {computedSignature}");
+           // Console.WriteLine($"Provided Signature: {providedSignature}");
+
+            return computedSignature.Equals(providedSignature, StringComparison.OrdinalIgnoreCase);
+        }
+
+
+
+
+        private string ComputeHmacSha256(string message, string secretKey)
+        {
+            var keyBytes = Encoding.UTF8.GetBytes(secretKey);
+            var messageBytes = Encoding.UTF8.GetBytes(message);
+
+            using (var hmac = new HMACSHA256(keyBytes))
+            {
+                var hashBytes = hmac.ComputeHash(messageBytes);
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
+
+      
     }
 }
