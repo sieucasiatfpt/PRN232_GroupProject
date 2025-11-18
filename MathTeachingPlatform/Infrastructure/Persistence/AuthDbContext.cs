@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence
@@ -61,7 +61,7 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.TeacherId).HasColumnName("teacher_id");
                 b.Property(x => x.UserId).HasColumnName("user_id").IsRequired();
                 b.Property(x => x.Name).HasColumnName("name").HasMaxLength(255);
-                b.Property(x => x.Bio).HasColumnName("bio").HasColumnType("nvarchar(max)");
+                b.Property(x => x.Bio).HasColumnName("bio");
                 b.Property(x => x.HireDate).HasColumnName("hire_date");
                 b.Property(x => x.Department).HasColumnName("department").HasMaxLength(100);
                 b.Property(x => x.Status).HasColumnName("status").HasConversion<string>().HasMaxLength(20).IsRequired();

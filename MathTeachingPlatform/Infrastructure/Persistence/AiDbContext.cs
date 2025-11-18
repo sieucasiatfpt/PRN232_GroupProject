@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence
@@ -37,8 +37,8 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.ModelName).HasColumnName("model_name").HasMaxLength(100);
                 b.Property(x => x.Temperature).HasColumnName("temperature").HasColumnType("decimal(3,2)");
                 b.Property(x => x.MaxTokens).HasColumnName("max_tokens");
-                b.Property(x => x.ConfigDetails).HasColumnName("config_details").HasColumnType("nvarchar(max)");
-                b.Property(x => x.SettingsJson).HasColumnName("settings_json").HasColumnType("nvarchar(max)");
+                b.Property(x => x.ConfigDetails).HasColumnName("config_details");
+                b.Property(x => x.SettingsJson).HasColumnName("settings_json");
                 b.Property(x => x.IsActive).HasColumnName("is_active").IsRequired();
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
 
@@ -62,10 +62,10 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.StudentId).HasColumnName("student_id");
                 b.Property(x => x.MatrixId).HasColumnName("matrix_id");
                 b.Property(x => x.ServiceName).HasColumnName("service_name").HasMaxLength(100);
-                b.Property(x => x.RequestText).HasColumnName("request_text").HasColumnType("nvarchar(max)");
-                b.Property(x => x.RequestData).HasColumnName("request_data").HasColumnType("nvarchar(max)");
-                b.Property(x => x.ResponseText).HasColumnName("response_text").HasColumnType("nvarchar(max)");
-                b.Property(x => x.ResponseData).HasColumnName("response_data").HasColumnType("nvarchar(max)");
+                b.Property(x => x.RequestText).HasColumnName("request_text");
+                b.Property(x => x.RequestData).HasColumnName("request_data");
+                b.Property(x => x.ResponseText).HasColumnName("response_text");
+                b.Property(x => x.ResponseData).HasColumnName("response_data");
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
 
                 b.HasIndex(x => x.ConfigId);
@@ -81,8 +81,8 @@ namespace Infrastructure.Persistence
 
                 b.Property(x => x.ChatId).HasColumnName("chat_id");
                 b.Property(x => x.TeacherId).HasColumnName("teacher_id").IsRequired();
-                b.Property(x => x.Message).HasColumnName("message").HasColumnType("nvarchar(max)").IsRequired();
-                b.Property(x => x.ChatSummary).HasColumnName("chat_summary").HasColumnType("nvarchar(max)");
+                b.Property(x => x.Message).HasColumnName("message").IsRequired();
+                b.Property(x => x.ChatSummary).HasColumnName("chat_summary");
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
 
                 b.HasIndex(x => x.TeacherId);

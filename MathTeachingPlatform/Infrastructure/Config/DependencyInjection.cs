@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using Application.Models.Payment;
 using Infrastructure.ApiClients;
@@ -8,6 +8,7 @@ using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
 
 namespace Infrastructure.Config
 {
@@ -20,17 +21,54 @@ namespace Infrastructure.Config
             var examConn = cfg.GetConnectionString("ExamDatabase") ?? throw new System.Exception("ExamDatabase missing");
             var aiConn = cfg.GetConnectionString("AiDatabase") ?? throw new System.Exception("AiDatabase missing");
 
+            string Normalize(string conn)
+            {
+                try
+                {
+                    var poolUriStr = cfg["Supabase:PrimaryDatabaseUri"];
+                    if (string.IsNullOrWhiteSpace(poolUriStr)) return conn;
+                    var nb = new NpgsqlConnectionStringBuilder(conn);
+                    if (nb.Host.EndsWith(".supabase.co"))
+                    {
+                        var uri = new Uri(poolUriStr);
+                        var userInfo = uri.UserInfo.Split(':');
+                        nb.Host = uri.Host;
+                        nb.Port = uri.Port;
+                        nb.Username = userInfo[0];
+                        if (userInfo.Length > 1) nb.Password = userInfo[1];
+                        return nb.ConnectionString;
+                    }
+                    return conn;
+                }
+                catch { return conn; }
+            }
+
+            authConn = Normalize(authConn);
+            contentConn = Normalize(contentConn);
+            examConn = Normalize(examConn);
+            aiConn = Normalize(aiConn);
+
+            try
+            {
+                var ab = new NpgsqlConnectionStringBuilder(authConn);
+                var cb = new NpgsqlConnectionStringBuilder(contentConn);
+                var eb = new NpgsqlConnectionStringBuilder(examConn);
+                var aib = new NpgsqlConnectionStringBuilder(aiConn);
+                Console.WriteLine($"DB hosts -> auth:{ab.Host} content:{cb.Host} exam:{eb.Host} ai:{aib.Host}");
+            }
+            catch { }
+
             services.AddDbContext<AuthDbContext>(o =>
-                o.UseSqlServer(authConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(authConn, npgsql => npgsql.EnableRetryOnFailure())
             );
             services.AddDbContext<ContentDbContext>(o =>
-                o.UseSqlServer(contentConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(contentConn, npgsql => npgsql.EnableRetryOnFailure())
             );
             services.AddDbContext<ExamDbContext>(o =>
-                o.UseSqlServer(examConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(examConn, npgsql => npgsql.EnableRetryOnFailure())
             );
             services.AddDbContext<AiDbContext>(o =>
-                o.UseSqlServer(aiConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(aiConn, npgsql => npgsql.EnableRetryOnFailure())
             );
 
             services.AddScoped<IAuthUnitOfWork, AuthUnitOfWork>();

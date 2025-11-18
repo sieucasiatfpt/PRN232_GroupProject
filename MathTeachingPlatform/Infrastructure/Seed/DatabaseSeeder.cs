@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Enum;
 using Infrastructure.Persistence;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -21,17 +22,36 @@ namespace Infrastructure.Seed
             var examDb = provider.GetRequiredService<ExamDbContext>();
             var aiDb = provider.GetRequiredService<AiDbContext>();
 
-            logger.LogInformation("Applying migrations...");
+            var cfg = provider.GetRequiredService<IConfiguration>();
+            var autoMigrate = cfg.GetValue<bool>("Database:AutoMigrate");
 
-            // Apply migrations and ensure creation
-            await authDb.Database.MigrateAsync();
-            await contentDb.Database.MigrateAsync();
-            await examDb.Database.MigrateAsync();
-            await aiDb.Database.MigrateAsync();
+            if (autoMigrate)
+            {
+                logger.LogInformation("Applying migrations...");
+                await authDb.Database.MigrateAsync();
+                await contentDb.Database.MigrateAsync();
+                await examDb.Database.MigrateAsync();
+                await aiDb.Database.MigrateAsync();
+                logger.LogInformation("Databases migrated successfully.");
+            }
+            else
+            {
+                logger.LogInformation("Ensuring databases created (no migrations)...");
+                await authDb.Database.EnsureCreatedAsync();
+                await contentDb.Database.EnsureCreatedAsync();
+                await examDb.Database.EnsureCreatedAsync();
+                await aiDb.Database.EnsureCreatedAsync();
+                logger.LogInformation("Databases ensured created.");
+            }
 
-            logger.LogInformation("Databases migrated successfully.");
-
-            await SeedAdminUserAsync(authDb, logger);
+            try
+            {
+                await SeedAdminUserAsync(authDb, logger);
+            }
+            catch (Exception ex)
+            {
+                logger.LogWarning("Skipping admin seeding due to database unavailability or missing schema: {Message}", ex.Message);
+            }
         }
 
         private static async Task SeedAdminUserAsync(AuthDbContext db, ILogger logger)
