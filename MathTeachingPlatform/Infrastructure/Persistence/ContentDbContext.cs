@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
 
@@ -35,7 +35,7 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.SubjectId).HasColumnName("subject_id");
                 b.Property(x => x.TeacherId).HasColumnName("teacher_id").IsRequired();
                 b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
-                b.Property(x => x.Description).HasColumnName("description").HasColumnType("nvarchar(max)");
+                b.Property(x => x.Description).HasColumnName("description");
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
                 b.Property(x => x.UpdatedAt).HasColumnName("updated_at");
 
@@ -110,7 +110,7 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.TeacherId).HasColumnName("teacher_id").IsRequired();
                 b.Property(x => x.SubjectId).HasColumnName("subject_id").IsRequired();
                 b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
-                b.Property(x => x.Description).HasColumnName("description").HasColumnType("nvarchar(max)");
+                b.Property(x => x.Description).HasColumnName("description");
                 b.Property(x => x.Url).HasColumnName("url").HasMaxLength(500);
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
 
@@ -132,7 +132,7 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.MatrixId).HasColumnName("matrix_id");
                 b.Property(x => x.SubjectId).HasColumnName("subject_id").IsRequired();
                 b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
-                b.Property(x => x.DifficultyDistribution).HasColumnName("difficulty_distribution").HasColumnType("nvarchar(max)");
+                b.Property(x => x.DifficultyDistribution).HasColumnName("difficulty_distribution");
                 b.Property(x => x.TotalQuestions).HasColumnName("total_questions").IsRequired();
                 b.Property(x => x.GeneratedOn).HasColumnName("generated_on").IsRequired();
 
@@ -153,10 +153,10 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.QuestionId).HasColumnName("question_id");
                 b.Property(x => x.SyllabusId).HasColumnName("syllabus_id");
                 b.Property(x => x.MatrixId).HasColumnName("matrix_id");
-                b.Property(x => x.QuestionText).HasColumnName("question_text").HasColumnType("nvarchar(max)").IsRequired();
+                b.Property(x => x.QuestionText).HasColumnName("question_text").IsRequired();
                 b.Property(x => x.QuestionType).HasColumnName("question_type").HasConversion<string>().HasMaxLength(30).IsRequired();
-                b.Property(x => x.OptionsJson).HasColumnName("options_json").HasColumnType("nvarchar(max)");
-                b.Property(x => x.Answers).HasColumnName("answers").HasColumnType("nvarchar(max)").IsRequired();
+                b.Property(x => x.OptionsJson).HasColumnName("options_json");
+                b.Property(x => x.Answers).HasColumnName("answers").IsRequired();
                 b.Property(x => x.Marks).HasColumnName("marks");
                 b.Property(x => x.Points).HasColumnName("points").HasColumnType("decimal(5,2)");
 
@@ -175,7 +175,7 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.ExamAttemptId).HasColumnName("exam_attempt_id");
                 b.Property(x => x.Title).HasColumnName("title").HasMaxLength(255).IsRequired();
                 b.Property(x => x.ActivityType).HasColumnName("activity_type").HasMaxLength(50).IsRequired();
-                b.Property(x => x.Description).HasColumnName("description").HasColumnType("nvarchar(max)");
+                b.Property(x => x.Description).HasColumnName("description");
                 b.Property(x => x.DueDate).HasColumnName("due_date");
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
 

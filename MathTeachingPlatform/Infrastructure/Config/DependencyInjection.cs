@@ -21,16 +21,16 @@ namespace Infrastructure.Config
             var aiConn = cfg.GetConnectionString("AiDatabase") ?? throw new System.Exception("AiDatabase missing");
 
             services.AddDbContext<AuthDbContext>(o =>
-                o.UseSqlServer(authConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(authConn, npgsql => npgsql.EnableRetryOnFailure())
             );
             services.AddDbContext<ContentDbContext>(o =>
-                o.UseSqlServer(contentConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(contentConn, npgsql => npgsql.EnableRetryOnFailure())
             );
             services.AddDbContext<ExamDbContext>(o =>
-                o.UseSqlServer(examConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(examConn, npgsql => npgsql.EnableRetryOnFailure())
             );
             services.AddDbContext<AiDbContext>(o =>
-                o.UseSqlServer(aiConn, sql => sql.EnableRetryOnFailure())
+                o.UseNpgsql(aiConn, npgsql => npgsql.EnableRetryOnFailure())
             );
 
             services.AddScoped<IAuthUnitOfWork, AuthUnitOfWork>();

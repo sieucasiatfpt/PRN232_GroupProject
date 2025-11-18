@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Enum;
 using Infrastructure.Persistence;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -21,15 +22,18 @@ namespace Infrastructure.Seed
             var examDb = provider.GetRequiredService<ExamDbContext>();
             var aiDb = provider.GetRequiredService<AiDbContext>();
 
-            logger.LogInformation("Applying migrations...");
+            var cfg = provider.GetRequiredService<IConfiguration>();
+            var autoMigrate = cfg.GetValue<bool>("Database:AutoMigrate");
 
-            // Apply migrations and ensure creation
-            await authDb.Database.MigrateAsync();
-            await contentDb.Database.MigrateAsync();
-            await examDb.Database.MigrateAsync();
-            await aiDb.Database.MigrateAsync();
-
-            logger.LogInformation("Databases migrated successfully.");
+            if (autoMigrate)
+            {
+                logger.LogInformation("Applying migrations...");
+                await authDb.Database.MigrateAsync();
+                await contentDb.Database.MigrateAsync();
+                await examDb.Database.MigrateAsync();
+                await aiDb.Database.MigrateAsync();
+                logger.LogInformation("Databases migrated successfully.");
+            }
 
             await SeedAdminUserAsync(authDb, logger);
         }
