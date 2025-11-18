@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\",
+  "WorkspaceRootPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|c:\\users\\minh\\desktop\\a\\prn232_groupproject\\mathteachingplatform\\infrastructure\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|e:\\cn\\cn8\\prn232\\group_project\\prn232_groupproject\\mathteachingplatform\\infrastructure\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08E14BA9-4E27-4A03-8CD6-BAA87F9EFAA8}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,20 +14,38 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "TeacherService.cs",
-              "DocumentMoniker": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\TeacherService.cs",
+              "DocumentMoniker": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\TeacherService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\TeacherService.cs",
-              "ToolTip": "C:\\Users\\Minh\\Desktop\\a\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\TeacherService.cs",
+              "ToolTip": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Services\\TeacherService.cs",
               "RelativeToolTip": "Infrastructure\\Services\\TeacherService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwDgAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwB8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T05:37:00.134Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 190,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }
