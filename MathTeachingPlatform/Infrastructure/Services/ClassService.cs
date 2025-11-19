@@ -295,21 +295,24 @@ namespace Infrastructure.Services
 
         public async Task<bool> EnrollStudentAsync(int classId, int studentId)
         {
+            // Check if the class exists
             var classExists = await _contentUow.Classes.AnyAsync(c => c.ClassId == classId);
             if (!classExists)
                 throw new Exception("Class not found");
 
-            // Check if student exists via API call
+            // Check if the student exists via API call
             var studentExists = await _studentApiClient.StudentExistsAsync(studentId);
             if (!studentExists)
                 throw new Exception("Student not found");
 
+            // Check if the student is already enrolled in the class
             var existingEnrollment = await _contentUow.ClassStudents
-                .FirstOrDefaultAsync(cs => cs.ClassId == classId && cs.StudentId == studentId);
-            
-            if (existingEnrollment != null)
-                throw new Exception("Student is already enrolled in this class");
+                .AnyAsync(cs => cs.ClassId == classId && cs.StudentId == studentId);
 
+            if (existingEnrollment)
+                throw new InvalidOperationException("Student is already enrolled in this class.");
+
+            // Create a new enrollment
             var enrollment = new ClassStudent
             {
                 ClassId = classId,
