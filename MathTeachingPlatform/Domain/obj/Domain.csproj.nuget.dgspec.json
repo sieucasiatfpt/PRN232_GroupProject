@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj": {
+    "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\cn\\cn8\\PRN232\\Group_Project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Minh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Minh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

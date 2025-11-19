@@ -27,17 +27,26 @@ namespace Infrastructure.Services
 
         public async Task<TeacherDto> CreateTeacherAsync(CreateTeacherRequest request)
         {
+            // Check if the user exists
             var user = await _authUow.Users.FirstOrDefaultAsync(u => u.UserId == request.UserId);
             if (user == null)
                 throw new Exception("User not found");
 
+            // Check if the user is already associated with a student
+            var isStudent = await _authUow.Students.AnyAsync(s => s.UserId == request.UserId);
+            if (isStudent)
+                throw new Exception("Cannot create a teacher profile for a user who is already a student");
+
+            // Check if the user has the Teacher role
             if (user.Role != UserRole.Teacher)
                 throw new Exception("User is not a teacher");
 
+            // Check if a teacher profile already exists for this user
             var existingTeacher = await _authUow.Teachers.FirstOrDefaultAsync(t => t.UserId == request.UserId);
             if (existingTeacher != null)
                 throw new Exception("Teacher profile already exists for this user");
 
+            // Create the teacher profile
             var teacher = new Teacher
             {
                 UserId = request.UserId,
