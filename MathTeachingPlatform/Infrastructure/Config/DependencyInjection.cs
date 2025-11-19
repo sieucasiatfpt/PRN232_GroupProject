@@ -105,6 +105,9 @@ namespace Infrastructure.Config
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
 
+            // Register JWT service
+            services.AddSingleton<IJwtService, JwtService>();
+
             // Register business services
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IStudentService, StudentService>();

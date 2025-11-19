@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "MathTeachingPlatformAPI",
-    "version": "1.0"
+    "title": "Math Teaching Platform API",
+    "description": "API for Math Teaching Platform with JWT Authentication",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/register": {
@@ -601,7 +602,41 @@
         }
       }
     },
+    "/api/Student/public": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Student/profile": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Student": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "post": {
         "tags": [
           "Student"
@@ -625,16 +660,6 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Student"
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -705,14 +730,14 @@
         }
       }
     },
-    "/api/Student/by-user/{userId}": {
-      "get": {
+    "/api/Student/{id}/status": {
+      "patch": {
         "tags": [
           "Student"
         ],
         "parameters": [
           {
-            "name": "userId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -721,29 +746,25 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Student/by-class/{classId}": {
-      "get": {
-        "tags": [
-          "Student"
-        ],
-        "parameters": [
-          {
-            "name": "classId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudentStatusRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudentStatusRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudentStatusRequest"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1322,15 +1343,15 @@
       },
       "LoginRequest": {
         "required": [
-          "password",
-          "username"
+          "email",
+          "password"
         ],
         "type": "object",
         "properties": {
-          "username": {
-            "maxLength": 50,
-            "minLength": 3,
-            "type": "string"
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
           },
           "password": {
             "minLength": 1,
@@ -1385,6 +1406,7 @@
       },
       "RegisterRequest": {
         "required": [
+          "email",
           "password",
           "role",
           "username"
@@ -1396,6 +1418,12 @@
             "minLength": 3,
             "type": "string"
           },
+          "email": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "format": "email"
+          },
           "password": {
             "minLength": 1,
             "type": "string"
@@ -1404,11 +1432,6 @@
             "minLength": 1,
             "pattern": "Teacher|Student|Admin",
             "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1517,6 +1540,22 @@
         },
         "additionalProperties": false
       },
+      "UpdateStudentStatusRequest": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/StudentStatus"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateSubjectRequest": {
         "type": "object",
         "properties": {
@@ -1572,6 +1611,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

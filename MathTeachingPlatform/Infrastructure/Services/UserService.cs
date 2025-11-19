@@ -12,40 +12,74 @@ namespace Infrastructure.Services
     public class UserService : IUserService
     {
         private readonly IAuthUnitOfWork _authUow;
+        private readonly IContentUnitOfWork _contentUow;
+        private readonly IJwtService _jwtService;
 
-        public UserService(IAuthUnitOfWork authUow)
+        public UserService(IAuthUnitOfWork authUow, IContentUnitOfWork contentUow, IJwtService jwtService)
         {
             _authUow = authUow;
+            _contentUow = contentUow;
+            _jwtService = jwtService;
         }
 
-        public async Task<string> RegisterAsync(string username, string password, string role)
+        public async Task<string> RegisterAsync(string username, string email, string password, string role)
         {
-            // Check if username already exists
             if (await _authUow.Users.AnyAsync(u => u.Username == username))
                 throw new Exception("Username already taken");
+
+            if (await _authUow.Users.AnyAsync(u => u.Email == email))
+                throw new Exception("Email already registered");
+
+            if (!Enum.TryParse<UserRole>(role, true, out var userRole))
+                throw new Exception("Invalid role");
 
             var user = new User
             {
                 Username = username,
+                Email = email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(password),
-                Role = Enum.Parse<UserRole>(role, true),
+                Role = userRole,
                 CreatedAt = DateTime.UtcNow
             };
 
             await _authUow.Users.AddAsync(user);
             await _authUow.SaveChangesAsync();
 
-            return $"registered:{user.UserId}";
+            return _jwtService.GenerateAccessToken(user);
         }
 
-        public async Task<string> LoginAsync(string username, string password)
+        public async Task<string> LoginAsync(string email, string password)
         {
-            var user = await _authUow.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var user = await _authUow.Users.FirstOrDefaultAsync(x => x.Email == email);
 
-            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
-                throw new Exception("Invalid credentials");
+            if (user == null)
+                throw new Exception("Invalid email or password");
 
-            return $"ok:{user.UserId}";
+            if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
+                throw new Exception("Invalid email or password");
+
+            if (user.Role == UserRole.Student)
+            {
+                var student = await _authUow.Students
+                    .FirstOrDefaultAsync(s => s.UserId == user.UserId);
+
+                if (student != null && student.Status == StudentStatus.Suspended)
+                {
+                    throw new Exception("Your student account has been suspended. Please contact the administrator.");
+                }
+            }
+            else if (user.Role == UserRole.Teacher)
+            {
+                var teacher = await _authUow.Teachers
+                    .FirstOrDefaultAsync(t => t.UserId == user.UserId);
+
+                if (teacher != null && teacher.Status == TeacherStatus.Inactive)
+                {
+                    throw new Exception("Your teacher account is inactive. Please contact the administrator.");
+                }
+            }
+
+            return _jwtService.GenerateAccessToken(user);
         }
     }
 }

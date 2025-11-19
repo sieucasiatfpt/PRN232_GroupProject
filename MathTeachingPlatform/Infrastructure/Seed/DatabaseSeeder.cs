@@ -64,6 +64,7 @@ namespace Infrastructure.Seed
             db.Users.Add(new User
             {
                 Username = "admin",
+                Email = "admin@gmail.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
                 Role = UserRole.Admin,
                 CreatedAt = DateTime.UtcNow,
@@ -72,7 +73,7 @@ namespace Infrastructure.Seed
 
             await db.SaveChangesAsync();
 
-            logger.LogInformation("Admin user seeded (username: admin, password: Admin@123).");
+            logger.LogInformation("Admin user seeded (email: admin@gmail.com, password: Admin@123).");
         }
     }
 }

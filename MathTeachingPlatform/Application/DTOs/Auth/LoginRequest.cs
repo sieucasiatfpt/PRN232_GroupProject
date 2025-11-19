@@ -4,11 +4,11 @@ namespace Application.DTOs.Auth
 {
     public class LoginRequest
     {
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
-        public string Username { get; set; } = null!;
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email format")]
+        public string Email { get; set; } = null!;
 
-        [Required]
+        [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; } = null!;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.Student;
+using Domain.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace Application.Interfaces
         Task<StudentDto> UpdateStudentAsync(int studentId, UpdateStudentRequest request);
         Task<bool> SuspendStudentAsync(int studentId);
         Task<bool> ActivateStudentAsync(int studentId);
+        Task<StudentDto> UpdateStudentStatusAsync(int studentId, StudentStatus status);
     }
 }

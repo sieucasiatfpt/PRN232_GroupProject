@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.Auth;
 using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathTeachingPlatformAPI.Controllers
@@ -9,17 +10,27 @@ namespace MathTeachingPlatformAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IUserService _svc;
-        public AuthController(IUserService svc) { _svc = svc; }
+
+        public AuthController(IUserService svc)
+        {
+            _svc = svc;
+        }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest req)
         {
-            if (!ModelState.IsValid) return ValidationProblem(ModelState);
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
 
             try
             {
-                var token = await _svc.RegisterAsync(req.Username, req.Password, req.Role);
-                return Ok(new { token });
+                var token = await _svc.RegisterAsync(req.Username, req.Email, req.Password, req.Role);
+                return Ok(new
+                {
+                    token,
+                    message = "Registration successful",
+                    email = req.Email
+                });
             }
             catch (Exception ex)
             {
@@ -30,12 +41,18 @@ namespace MathTeachingPlatformAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest req)
         {
-            if (!ModelState.IsValid) return ValidationProblem(ModelState);
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
 
             try
             {
-                var token = await _svc.LoginAsync(req.Username, req.Password);
-                return Ok(new { token });
+                var token = await _svc.LoginAsync(req.Email, req.Password);
+                return Ok(new
+                {
+                    token,
+                    message = "Login successful",
+                    email = req.Email
+                });
             }
             catch (Exception ex)
             {

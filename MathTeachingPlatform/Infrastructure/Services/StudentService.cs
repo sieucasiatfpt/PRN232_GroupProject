@@ -183,6 +183,19 @@ namespace Infrastructure.Services
             return await GetStudentByIdAsync(studentId);
         }
 
+        public async Task<StudentDto> UpdateStudentStatusAsync(int studentId, StudentStatus status)
+        {
+            var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
+            if (student == null)
+                throw new Exception("Student not found");
+
+            student.Status = status;
+            _authUow.Students.Update(student);
+            await _authUow.SaveChangesAsync();
+
+            return await GetStudentByIdAsync(studentId);
+        }
+
         public async Task<bool> SuspendStudentAsync(int studentId)
         {
             var student = await _authUow.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
