@@ -1,5 +1,6 @@
 using Application.DTOs.Teacher;
 using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathTeachingPlatformAPI.Controllers
@@ -14,7 +15,7 @@ namespace MathTeachingPlatformAPI.Controllers
         {
             _teacherService = teacherService;
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateTeacher([FromBody] CreateTeacherRequest request)
         {
@@ -31,7 +32,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTeacherById(int id)
         {
@@ -45,7 +46,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return NotFound(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllTeachers()
         {
@@ -59,7 +60,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-user/{userId}")]
         public async Task<IActionResult> GetTeacherByUserId(int userId)
         {
@@ -76,7 +77,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-department/{department}")]
         public async Task<IActionResult> GetTeachersByDepartment(string department)
         {
@@ -90,7 +91,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTeacher(int id, [FromBody] UpdateTeacherRequest request)
         {
@@ -107,7 +108,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTeacher(int id)
         {
@@ -121,7 +122,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost("{id}/suspend")]
         public async Task<IActionResult> SuspendTeacher(int id)
         {
@@ -135,7 +136,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost("{id}/activate")]
         public async Task<IActionResult> ActivateTeacher(int id)
         {

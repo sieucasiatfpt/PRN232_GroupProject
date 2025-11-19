@@ -2,6 +2,7 @@
 using Application.Interfaces;
 using Application.Models.Payment;
 using Domain.Enum;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathTeachingPlatformAPI.Controllers
@@ -20,7 +21,7 @@ namespace MathTeachingPlatformAPI.Controllers
         }
 
         // CRUD Operations
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost]
         public async Task<IActionResult> CreatePayment([FromBody] CreatePaymentDto createPaymentDto)
         {
@@ -37,7 +38,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPayment(int id)
         {
@@ -54,7 +55,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return NotFound(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllPayments()
         {
@@ -68,7 +69,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-teacher/{teacherId}")]
         public async Task<IActionResult> GetPaymentsByTeacher(int teacherId)
         {
@@ -82,7 +83,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-status/{status}")]
         public async Task<IActionResult> GetPaymentsByStatus(PaymentStatus status)
         {
@@ -96,7 +97,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePayment(int id, [FromBody] UpdatePaymentDto updatePaymentDto)
         {
@@ -117,7 +118,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPatch("{id}/status")]
         public async Task<IActionResult> UpdatePaymentStatus(int id, [FromBody] PaymentStatus status)
         {
@@ -140,7 +141,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePayment(int id)
         {
@@ -159,14 +160,14 @@ namespace MathTeachingPlatformAPI.Controllers
         }
 
         // MOMO Integration
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost("momo/url")]
         public async Task<IActionResult> CreatePaymentUrl([FromBody] OrderInfoModel model)
         {
             try
             {
                 var response = await _momoService.CreatePaymentAsync(model);
-                
+
                 if (response.ErrorCode == 0)
                 {
                     return Ok(new { PayUrl = response.PayUrl, OrderId = response.OrderId });
@@ -181,6 +182,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("payment/paymentCallback")]
         public async Task<IActionResult> PaymentCallback([FromQuery] string? url = null)
         {
@@ -244,7 +246,7 @@ namespace MathTeachingPlatformAPI.Controllers
 
 
 
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost("momo/notify")]
         public IActionResult MomoNotify()
         {

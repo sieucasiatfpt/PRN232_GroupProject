@@ -1,5 +1,6 @@
 using Application.DTOs.Subject;
 using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathTeachingPlatformAPI.Controllers
@@ -14,7 +15,7 @@ namespace MathTeachingPlatformAPI.Controllers
         {
             _subjectService = subjectService;
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateSubject([FromBody] CreateSubjectRequest request)
         {
@@ -31,7 +32,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSubjectById(int id)
         {
@@ -45,7 +46,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return NotFound(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllSubjects()
         {
@@ -59,7 +60,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-teacher/{teacherId}")]
         public async Task<IActionResult> GetSubjectsByTeacherId(int teacherId)
         {
@@ -73,7 +74,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSubject(int id, [FromBody] UpdateSubjectRequest request)
         {
@@ -90,7 +91,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSubject(int id)
         {
