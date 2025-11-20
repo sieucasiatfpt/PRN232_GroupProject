@@ -183,7 +183,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
         [Authorize(Roles = "Teacher,Admin")]
-        [HttpGet("payment/paymentCallback")]
+        [HttpGet("callback")]
         public async Task<IActionResult> PaymentCallback([FromQuery] string? url = null)
         {
             try

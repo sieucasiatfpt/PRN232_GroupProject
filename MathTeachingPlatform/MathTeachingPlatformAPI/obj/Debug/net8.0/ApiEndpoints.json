@@ -196,7 +196,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
     "Method": "EnrollStudent",
-    "RelativePath": "classes/{classId}/enroll/{studentId}",
+    "RelativePath": "classes/{classId}/enrollment/{studentId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -217,7 +217,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
     "Method": "UnenrollStudent",
-    "RelativePath": "classes/{classId}/unenroll/{studentId}",
+    "RelativePath": "classes/{classId}/unenrollment/{studentId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -687,7 +687,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "ActivateTeacher",
-    "RelativePath": "teachers/{id}/activate",
+    "RelativePath": "teachers/{id}/activation",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -703,7 +703,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "SuspendTeacher",
-    "RelativePath": "teachers/{id}/suspend",
+    "RelativePath": "teachers/{id}/suspension",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

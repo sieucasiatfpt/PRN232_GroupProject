@@ -239,7 +239,7 @@
         }
       }
     },
-    "/classes/{classId}/enroll/{studentId}": {
+    "/classes/{classId}/enrollment/{studentId}": {
       "post": {
         "tags": [
           "Class"
@@ -271,7 +271,7 @@
         }
       }
     },
-    "/classes/{classId}/unenroll/{studentId}": {
+    "/classes/{classId}/unenrollment/{studentId}": {
       "delete": {
         "tags": [
           "Class"
@@ -1136,7 +1136,7 @@
         }
       }
     },
-    "/teachers/{id}/suspend": {
+    "/teachers/{id}/suspension": {
       "post": {
         "tags": [
           "Teacher"
@@ -1159,7 +1159,7 @@
         }
       }
     },
-    "/teachers/{id}/activate": {
+    "/teachers/{id}/activation": {
       "post": {
         "tags": [
           "Teacher"
