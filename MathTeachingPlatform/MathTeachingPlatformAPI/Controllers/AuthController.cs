@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.Auth;
 using Application.Interfaces;
+using Domain.Enum;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
