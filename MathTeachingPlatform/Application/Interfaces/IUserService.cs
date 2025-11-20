@@ -1,8 +1,11 @@
-﻿namespace Application.Interfaces
+﻿using Application.DTOs.Auth;
+
+namespace Application.Interfaces
 {
     public interface IUserService
     {
-        Task<string> RegisterAsync(string username, string password, string role);
-        Task<string> LoginAsync(string username, string password);
+        Task<AuthResponse> RegisterAsync(string username, string email, string password, string role);
+        Task<AuthResponse> LoginAsync(string email, string password);
+        Task<AuthResponse> RefreshTokenAsync(string refreshToken);
     }
 }

@@ -1,5 +1,6 @@
 using Application.DTOs.Class;
 using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathTeachingPlatformAPI.Controllers
@@ -15,6 +16,7 @@ namespace MathTeachingPlatformAPI.Controllers
             _classService = classService;
         }
 
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateClass([FromBody] CreateClassRequest request)
         {
@@ -31,7 +33,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClassById(int id)
         {
@@ -45,7 +47,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return NotFound(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllClasses()
         {
@@ -59,7 +61,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-teacher/{teacherId}")]
         public async Task<IActionResult> GetClassesByTeacherId(int teacherId)
         {
@@ -73,7 +75,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-subject/{subjectId}")]
         public async Task<IActionResult> GetClassesBySubjectId(int subjectId)
         {
@@ -87,7 +89,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateClass(int id, [FromBody] UpdateClassRequest request)
         {
@@ -104,7 +106,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClass(int id)
         {
@@ -118,8 +120,8 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
-        [HttpPost("{classId}/enroll/{studentId}")]
+        [Authorize(Roles = "Teacher,Admin")]
+        [HttpPost("{classId}/enrollment/{studentId}")]
         public async Task<IActionResult> EnrollStudent(int classId, int studentId)
         {
             try
@@ -132,8 +134,8 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
-        [HttpDelete("{classId}/unenroll/{studentId}")]
+        [Authorize(Roles = "Teacher,Admin")]
+        [HttpDelete("{classId}/unenrollment/{studentId}")]
         public async Task<IActionResult> UnenrollStudent(int classId, int studentId)
         {
             try
@@ -146,7 +148,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("teachers/{teacherId}/active-classes")]
         public async Task<IActionResult> HasActiveClassesAsync(int teacherId)
         {

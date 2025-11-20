@@ -36,11 +36,13 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.PasswordHash).HasColumnName("password_hash").HasMaxLength(255).IsRequired();
                 b.Property(x => x.Email).HasColumnName("email").HasMaxLength(255);
                 b.Property(x => x.Role).HasColumnName("role").HasConversion<string>().HasMaxLength(50).IsRequired();
+                b.Property(x => x.PaymentStatus).HasColumnName("payment_status").HasConversion<string>().HasMaxLength(20).IsRequired().HasDefaultValue(Domain.Enum.PaymentStatus.Pending);
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
                 b.Property(x => x.UpdatedAt).HasColumnName("updated_at");
 
                 b.HasIndex(x => x.Username).IsUnique();
                 b.HasIndex(x => x.Email);
+                b.HasIndex(x => x.PaymentStatus);
 
                 b.HasOne(x => x.Teacher)
                     .WithOne(t => t.User)

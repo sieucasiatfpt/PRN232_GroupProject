@@ -17,6 +17,36 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/Auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
+    "Method": "GetCurrentUser",
+    "RelativePath": "api/Auth/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Auth/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
@@ -33,6 +63,16 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "GetAllStudents",
+    "RelativePath": "api/Student",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
     "Method": "CreateStudent",
     "RelativePath": "api/Student",
     "HttpMethod": "POST",
@@ -45,16 +85,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "GetAllStudents",
-    "RelativePath": "api/Student",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -112,6 +142,27 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "UpdateStudentStatus",
+    "RelativePath": "api/Student/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Student.UpdateStudentStatusRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
     "Method": "SuspendStudent",
     "RelativePath": "api/Student/{id}/suspend",
     "HttpMethod": "POST",
@@ -128,34 +179,22 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "GetStudentsByClassId",
-    "RelativePath": "api/Student/by-class/{classId}",
+    "Method": "GetProfile",
+    "RelativePath": "api/Student/profile",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "classId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "GetStudentByUserId",
-    "RelativePath": "api/Student/by-user/{userId}",
+    "Method": "GetPublicInfo",
+    "RelativePath": "api/Student/public",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -187,7 +226,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
     "Method": "EnrollStudent",
-    "RelativePath": "classes/{classId}/enroll/{studentId}",
+    "RelativePath": "classes/{classId}/enrollment/{studentId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -208,7 +247,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.ClassController",
     "Method": "UnenrollStudent",
-    "RelativePath": "classes/{classId}/unenroll/{studentId}",
+    "RelativePath": "classes/{classId}/unenrollment/{studentId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -461,6 +500,22 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "PaymentCallback",
+    "RelativePath": "payments/callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "url",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
     "Method": "MomoNotify",
     "RelativePath": "payments/momo/notify",
     "HttpMethod": "POST",
@@ -481,22 +536,6 @@
         "Name": "model",
         "Type": "Application.Models.Payment.OrderInfoModel",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "PaymentCallback",
-    "RelativePath": "payments/payment/paymentCallback",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "url",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -678,7 +717,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "ActivateTeacher",
-    "RelativePath": "teachers/{id}/activate",
+    "RelativePath": "teachers/{id}/activation",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -694,7 +733,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.TeacherController",
     "Method": "SuspendTeacher",
-    "RelativePath": "teachers/{id}/suspend",
+    "RelativePath": "teachers/{id}/suspension",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
