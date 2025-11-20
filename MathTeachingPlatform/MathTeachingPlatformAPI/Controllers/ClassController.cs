@@ -120,7 +120,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        [Authorize(Roles = "Teacher,Admin,Student")]
         [HttpPost("{classId}/enrollment/{studentId}")]
         public async Task<IActionResult> EnrollStudent(int classId, int studentId)
         {
