@@ -32,10 +32,6 @@ namespace MathTeachingPlatformAPI.Controllers
             {
                 var response = await _userService.RegisterAsync(req.Username, req.Email, req.Password, req.Role);
 
-                // Generate and set refresh token as HTTP-only cookie
-                var refreshToken = _jwtService.GenerateRefreshToken();
-                SetRefreshTokenCookie(refreshToken);
-
                 return Ok(response);
             }
             catch (Exception ex)

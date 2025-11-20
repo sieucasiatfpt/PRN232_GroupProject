@@ -32,7 +32,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        //[Authorize(Roles = "Teacher,Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSubjectById(int id)
         {

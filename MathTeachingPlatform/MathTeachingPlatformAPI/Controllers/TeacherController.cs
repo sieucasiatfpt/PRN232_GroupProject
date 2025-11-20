@@ -32,7 +32,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+       // [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTeacherById(int id)
         {
@@ -136,7 +136,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+       // [Authorize(Roles = "Teacher,Admin")]
         [HttpPost("{id}/activation")]
         public async Task<IActionResult> ActivateTeacher(int id)
         {

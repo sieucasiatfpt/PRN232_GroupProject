@@ -23,7 +23,7 @@ namespace Infrastructure.Services
             _jwtService = jwtService;
         }
 
-        public async Task<AuthResponse> RegisterAsync(string username, string email, string password, string role)
+        public async Task<RegisterResponse> RegisterAsync(string username, string email, string password, string role)
         {
             if (await _authUow.Users.AnyAsync(u => u.Username == username))
                 throw new Exception("Username already taken");
@@ -48,12 +48,11 @@ namespace Infrastructure.Services
 
             var accessToken = _jwtService.GenerateAccessToken(user);
 
-            return new AuthResponse
+            return new RegisterResponse
             {
-                AccessToken = accessToken,
-                AccessTokenExpiry = DateTime.UtcNow.AddMinutes(_jwtService.GetAccessTokenExpirationMinutes()),
+                Username = username,
                 Email = email,
-                Role = userRole.ToString(),
+                Password = password,
                 Message = "Registration successful"
             };
         }

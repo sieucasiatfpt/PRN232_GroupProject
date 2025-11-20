@@ -14,11 +14,11 @@ namespace MathTeachingPlatformAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> list([FromQuery(Name = "config_id")] int? configId, [FromQuery(Name = "student_id")] int? studentId)
         {
-            var logs = await _uow.AICallLogs.GetAllAsync();
-            var q = logs.AsQueryable();
-            if (configId.HasValue) q = q.Where(x => x.ConfigId == configId.Value).ToList().AsQueryable();
-            if (studentId.HasValue) q = q.Where(x => x.StudentId == studentId.Value).ToList().AsQueryable();
-            var r = q.OrderByDescending(x => x.CreatedAt).Select(x => new AiCallLogDto
+            var q = _uow.AICallLogs.Query().Where(x => !x.IsDeleted);
+            if (configId.HasValue) q = q.Where(x => x.ConfigId == configId.Value);
+            if (studentId.HasValue) q = q.Where(x => x.StudentId == studentId.Value);
+            var items = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync(q.OrderByDescending(x => x.CreatedAt));
+            var r = items.Select(x => new AiCallLogDto
             {
                 log_id = x.LogId,
                 config_id = x.ConfigId,
@@ -49,6 +49,17 @@ namespace MathTeachingPlatformAPI.Controllers
                 created_at = x.CreatedAt
             };
             return Ok(r);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> soft_delete(int id)
+        {
+            var x = await _uow.AICallLogs.FirstOrDefaultAsync(l => l.LogId == id);
+            if (x == null) return NotFound();
+            x.IsDeleted = true;
+            _uow.AICallLogs.Update(x);
+            await _uow.SaveChangesAsync();
+            return NoContent();
         }
     }
 }

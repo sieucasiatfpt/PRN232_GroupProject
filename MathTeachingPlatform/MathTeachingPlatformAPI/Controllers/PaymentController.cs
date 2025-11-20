@@ -1,11 +1,14 @@
 ﻿using Application.DTOs.Payment;
+using Application.DTOs.Teacher;
 using Application.Interfaces;
 using Application.Models.Payment;
 using Domain.Enum;
+using Infrastructure.ApiClients;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 
 namespace MathTeachingPlatformAPI.Controllers
 {
@@ -15,15 +18,17 @@ namespace MathTeachingPlatformAPI.Controllers
     {
         private readonly IMomoService _momoService;
         private readonly IPaymentService _paymentService;
+        private readonly ITeacherApiClient _teacherApiClient;
 
-        public PaymentController(IMomoService momoService, IPaymentService paymentService)
+        public PaymentController(IMomoService momoService, IPaymentService paymentService, ITeacherApiClient teacherApiClient)
         {
             _momoService = momoService;
             _paymentService = paymentService;
+            _teacherApiClient = teacherApiClient; // Assign the injected dependency
         }
 
         // CRUD Operations
-        [Authorize(Roles = "Teacher,Admin")]
+        // [Authorize(Roles = "Teacher,Admin")]
         [HttpPost]
         public async Task<IActionResult> CreatePayment([FromBody] CreatePaymentDto createPaymentDto)
         {
@@ -162,7 +167,7 @@ namespace MathTeachingPlatformAPI.Controllers
         }
 
         // MOMO Integration
-        [Authorize(Roles = "Teacher,Admin")]
+        //[Authorize(Roles = "Teacher,Admin")]
         [HttpPost("momo/url")]
         public async Task<IActionResult> CreatePaymentUrl([FromBody] OrderInfoModel model)
         {
@@ -184,18 +189,17 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        // [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("callback")]
         public async Task<IActionResult> PaymentCallback([FromQuery] string? url = null)
         {
             try
             {
-                // If a full URL is provided, extract the query string from it
+                // 1️⃣ Lấy query parameters
                 var parameters = string.IsNullOrEmpty(url)
                     ? HttpContext.Request.Query.ToDictionary(kvp => kvp.Key, kvp => kvp.Value)
                     : Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(url).Query);
 
-                // Map query parameters to the callback response model
                 var callback = new MomoCallbackResponseModel
                 {
                     PartnerCode = parameters["partnerCode"],
@@ -214,27 +218,65 @@ namespace MathTeachingPlatformAPI.Controllers
                     ExtraData = parameters.ContainsKey("extraData") ? parameters["extraData"].ToString() ?? "" : ""
                 };
 
-                // Validate the signature
-                string signature = parameters["signature"];
-                var isValidSignature = await _momoService.ValidateSignature(callback, signature);
-                if (!isValidSignature)
+                // 2️⃣ Validate signature
+                var signature = parameters["signature"];
+                if (!await _momoService.ValidateSignature(callback, signature))
                     return BadRequest(new { success = false, message = "Invalid signature" });
 
-                // Extract payment ID from ExtraData
+                // 3️⃣ Lấy PaymentId từ ExtraData
                 if (!int.TryParse(callback.ExtraData, out var paymentId))
                     return BadRequest(new { success = false, message = "Invalid PaymentId in ExtraData" });
 
-                // Determine payment status
+                // 4️⃣ Lấy Payment để lấy TeacherId
+                var payment = await _paymentService.GetPaymentByIdAsync(paymentId);
+                if (payment == null)
+                    return NotFound(new { success = false, message = "Payment not found" });
+
+                var teacherId = payment.TeacherId;
+
+                // 5️⃣ Lấy thông tin Teacher
+                var teacherData = await _teacherApiClient.GetTeacherByIdAsync(teacherId);
+                if (teacherData == null || teacherData.UserId == 0)
+                    return BadRequest(new { success = false, message = "Failed to retrieve teacher details" });
+
+                var userId = teacherData.UserId;
+
+                // 6️⃣ Xác định trạng thái payment
                 var status = callback.ErrorCode == 0 ? PaymentStatus.Completed : PaymentStatus.Failed;
 
-                // Update payment status
-                var updateResult = await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
+                // 7️⃣ Cập nhật Payment
+                await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
                 {
                     PaymentId = paymentId,
                     Status = status
                 });
 
-                // Return appropriate response
+                // 8️⃣ Cập nhật User PaymentStatus qua UserController API
+                var payload = new { paymentStatus = (int)status }; // Gửi dạng int
+                var userApiUrl = $"https://mathweb-e9ezeegehmfddmdp.canadacentral-01.azurewebsites.net/users/{userId}/payment-status";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var content = new StringContent(
+                        JsonSerializer.Serialize(payload),
+                        Encoding.UTF8,
+                        "application/json"
+                    );
+
+                    var response = await httpClient.PutAsync(userApiUrl, content);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        var detail = await response.Content.ReadAsStringAsync();
+                        return BadRequest(new
+                        {
+                            success = false,
+                            message = "Failed to update user payment status",
+                            detail
+                        });
+                    }
+                }
+
+                // 9️⃣ Trả kết quả callback
                 return status == PaymentStatus.Completed
                     ? Ok(new { success = true, message = "Payment successful", data = callback })
                     : BadRequest(new { success = false, message = callback.Message, errorCode = callback.ErrorCode });
@@ -244,8 +286,6 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { success = false, error = ex.Message });
             }
         }
-
-
 
 
         [Authorize(Roles = "Teacher,Admin")]
