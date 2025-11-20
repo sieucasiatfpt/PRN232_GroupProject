@@ -121,7 +121,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
         [Authorize(Roles = "Teacher,Admin")]
-        [HttpPost("{classId}/enroll/{studentId}")]
+        [HttpPost("{classId}/enrollment/{studentId}")]
         public async Task<IActionResult> EnrollStudent(int classId, int studentId)
         {
             try
@@ -135,7 +135,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
         [Authorize(Roles = "Teacher,Admin")]
-        [HttpDelete("{classId}/unenroll/{studentId}")]
+        [HttpDelete("{classId}/unenrollment/{studentId}")]
         public async Task<IActionResult> UnenrollStudent(int classId, int studentId)
         {
             try

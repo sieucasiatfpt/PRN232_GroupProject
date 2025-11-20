@@ -123,7 +123,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
         [Authorize(Roles = "Teacher,Admin")]
-        [HttpPost("{id}/suspend")]
+        [HttpPost("{id}/suspension")]
         public async Task<IActionResult> SuspendTeacher(int id)
         {
             try
@@ -137,7 +137,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
         [Authorize(Roles = "Teacher,Admin")]
-        [HttpPost("{id}/activate")]
+        [HttpPost("{id}/activation")]
         public async Task<IActionResult> ActivateTeacher(int id)
         {
             try
