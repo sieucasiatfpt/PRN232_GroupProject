@@ -111,6 +111,9 @@ namespace Infrastructure.Config
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<IClassService, ClassService>();
+            services.AddScoped<IQuizService, QuizService>();
+            services.AddScoped<IAiConfigService, AiConfigService>();
+            services.AddScoped<IAiHistoryChatService, AiHistoryChatService>();
 
             // Payment services
             services.AddScoped<IPaymentRepository, PaymentRepository>();
