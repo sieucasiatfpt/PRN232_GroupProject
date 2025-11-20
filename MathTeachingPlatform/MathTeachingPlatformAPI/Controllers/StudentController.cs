@@ -7,7 +7,7 @@ using System.Security.Claims;
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("student")]
     [Authorize]
     public class StudentController : ControllerBase
     {
@@ -147,7 +147,7 @@ namespace MathTeachingPlatformAPI.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost("{id}/suspend")]
+        [HttpPost("{id}/suspension")]
         public async Task<IActionResult> SuspendStudent(int id)
         {
             try
@@ -162,7 +162,7 @@ namespace MathTeachingPlatformAPI.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost("{id}/activate")]
+        [HttpPost("{id}/activation")]
         public async Task<IActionResult> ActivateStudent(int id)
         {
             try

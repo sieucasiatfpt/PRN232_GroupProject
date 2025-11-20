@@ -172,7 +172,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth/login",
+    "RelativePath": "authen/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -188,7 +188,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
     "Method": "Logout",
-    "RelativePath": "api/Auth/logout",
+    "RelativePath": "authen/logout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -198,7 +198,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
     "Method": "GetCurrentUser",
-    "RelativePath": "api/Auth/me",
+    "RelativePath": "authen/me",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -208,7 +208,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
     "Method": "RefreshToken",
-    "RelativePath": "api/Auth/refresh-token",
+    "RelativePath": "authen/refresh-token",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -218,7 +218,7 @@
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Auth/register",
+    "RelativePath": "authen/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -229,142 +229,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "GetAllStudents",
-    "RelativePath": "api/Student",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "CreateStudent",
-    "RelativePath": "api/Student",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Application.DTOs.Student.CreateStudentRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "GetStudentById",
-    "RelativePath": "api/Student/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "UpdateStudent",
-    "RelativePath": "api/Student/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Application.DTOs.Student.UpdateStudentRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "ActivateStudent",
-    "RelativePath": "api/Student/{id}/activate",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "UpdateStudentStatus",
-    "RelativePath": "api/Student/{id}/status",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Application.DTOs.Student.UpdateStudentStatusRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "SuspendStudent",
-    "RelativePath": "api/Student/{id}/suspend",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "GetProfile",
-    "RelativePath": "api/Student/profile",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
-    "Method": "GetPublicInfo",
-    "RelativePath": "api/Student/public",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -724,6 +588,142 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "GetAllStudents",
+    "RelativePath": "student",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "CreateStudent",
+    "RelativePath": "student",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Student.CreateStudentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "GetStudentById",
+    "RelativePath": "student/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "UpdateStudent",
+    "RelativePath": "student/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Student.UpdateStudentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "ActivateStudent",
+    "RelativePath": "student/{id}/activation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "UpdateStudentStatus",
+    "RelativePath": "student/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Student.UpdateStudentStatusRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "SuspendStudent",
+    "RelativePath": "student/{id}/suspension",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "GetProfile",
+    "RelativePath": "student/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.StudentController",
+    "Method": "GetPublicInfo",
+    "RelativePath": "student/public",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

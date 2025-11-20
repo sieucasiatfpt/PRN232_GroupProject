@@ -42,7 +42,7 @@ namespace Infrastructure.Config
                 }
                 catch { return conn; }
             }
-
+            services.AddHttpContextAccessor();
             authConn = Normalize(authConn);
             contentConn = Normalize(contentConn);
             examConn = Normalize(examConn);

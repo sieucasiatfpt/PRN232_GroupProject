@@ -12,16 +12,33 @@ namespace Infrastructure.ApiClients
     public class ClassApiClient : IClassApiClient
     {
         private readonly HttpClient _httpClient;
+        private string? _jwtToken;
 
         public ClassApiClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
+        // Method to set the JWT token
+        public void SetToken(string jwtToken)
+        {
+            _jwtToken = jwtToken;
+        }
+
+        private void AddAuthorizationHeader()
+        {
+            if (!string.IsNullOrEmpty(_jwtToken))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _jwtToken);
+            }
+        }
+
         public async Task<bool> HasActiveClassesAsync(int teacherId)
         {
             try
             {
+                AddAuthorizationHeader();
                 var response = await _httpClient.GetAsync($"classes/teachers/{teacherId}/active-classes");
                 if (response.IsSuccessStatusCode)
                 {
@@ -40,6 +57,7 @@ namespace Infrastructure.ApiClients
         {
             try
             {
+                AddAuthorizationHeader();
                 var response = await _httpClient.GetAsync($"classes/by-teacher/{teacherId}");
                 if (response.IsSuccessStatusCode)
                 {
@@ -52,5 +70,7 @@ namespace Infrastructure.ApiClients
                 return new List<ClassInfoDto>();
             }
         }
+
+
     }
 }

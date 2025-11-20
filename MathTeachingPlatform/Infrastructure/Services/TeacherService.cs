@@ -4,6 +4,7 @@ using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enum;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,18 @@ namespace Infrastructure.Services
         private readonly IAuthUnitOfWork _authUow;
         private readonly ISubjectApiClient _subjectApiClient;
         private readonly IClassApiClient _classApiClient;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public TeacherService(IAuthUnitOfWork authUow, ISubjectApiClient subjectApiClient, IClassApiClient classApiClient)
+        public TeacherService(
+            IAuthUnitOfWork authUow,
+            ISubjectApiClient subjectApiClient,
+            IClassApiClient classApiClient,
+            IHttpContextAccessor httpContextAccessor)
         {
             _authUow = authUow;
             _subjectApiClient = subjectApiClient;
             _classApiClient = classApiClient;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<TeacherDto> CreateTeacherAsync(CreateTeacherRequest request)
@@ -210,7 +217,14 @@ namespace Infrastructure.Services
             if (teacher == null)
                 throw new Exception("Teacher not found");
 
-            // Check if the teacher has any active classes via the ClassApiClient
+            // Get JWT token and set it in ClassApiClient
+            var jwtToken = GetJwtToken();
+            if (!string.IsNullOrEmpty(jwtToken))
+            {
+                _classApiClient.SetToken(jwtToken);
+            }
+
+            // Check if the teacher has any active classes
             var hasActiveClasses = await _classApiClient.HasActiveClassesAsync(teacherId);
             if (hasActiveClasses)
                 throw new Exception("Cannot suspend teacher with active classes");
@@ -233,6 +247,16 @@ namespace Infrastructure.Services
             await _authUow.SaveChangesAsync();
 
             return true;
+        }
+
+        private string? GetJwtToken()
+        {
+            var authHeader = _httpContextAccessor.HttpContext?.Request.Headers["Authorization"].ToString();
+            if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
+            {
+                return authHeader.Substring("Bearer ".Length).Trim();
+            }
+            return null;
         }
     }
 }

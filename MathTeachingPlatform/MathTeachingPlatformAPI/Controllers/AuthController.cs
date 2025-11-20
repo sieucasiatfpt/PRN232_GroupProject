@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("authen")]
     public class AuthController : ControllerBase
     {
         private readonly IUserService _userService;

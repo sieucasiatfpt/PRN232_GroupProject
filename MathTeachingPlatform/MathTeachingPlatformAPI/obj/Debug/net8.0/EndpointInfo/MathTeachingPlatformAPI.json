@@ -268,7 +268,7 @@
         }
       }
     },
-    "/api/Auth/register": {
+    "/authen/register": {
       "post": {
         "tags": [
           "Auth"
@@ -299,7 +299,7 @@
         }
       }
     },
-    "/api/Auth/login": {
+    "/authen/login": {
       "post": {
         "tags": [
           "Auth"
@@ -330,7 +330,7 @@
         }
       }
     },
-    "/api/Auth/refresh-token": {
+    "/authen/refresh-token": {
       "post": {
         "tags": [
           "Auth"
@@ -342,7 +342,7 @@
         }
       }
     },
-    "/api/Auth/logout": {
+    "/authen/logout": {
       "post": {
         "tags": [
           "Auth"
@@ -354,7 +354,7 @@
         }
       }
     },
-    "/api/Auth/me": {
+    "/authen/me": {
       "get": {
         "tags": [
           "Auth"
@@ -931,7 +931,7 @@
         }
       }
     },
-    "/api/Student/public": {
+    "/student/public": {
       "get": {
         "tags": [
           "Student"
@@ -943,7 +943,7 @@
         }
       }
     },
-    "/api/Student/profile": {
+    "/student/profile": {
       "get": {
         "tags": [
           "Student"
@@ -955,7 +955,7 @@
         }
       }
     },
-    "/api/Student": {
+    "/student": {
       "get": {
         "tags": [
           "Student"
@@ -996,7 +996,7 @@
         }
       }
     },
-    "/api/Student/{id}": {
+    "/student/{id}": {
       "get": {
         "tags": [
           "Student"
@@ -1059,7 +1059,7 @@
         }
       }
     },
-    "/api/Student/{id}/status": {
+    "/student/{id}/status": {
       "patch": {
         "tags": [
           "Student"
@@ -1101,7 +1101,7 @@
         }
       }
     },
-    "/api/Student/{id}/suspend": {
+    "/student/{id}/suspension": {
       "post": {
         "tags": [
           "Student"
@@ -1124,7 +1124,7 @@
         }
       }
     },
-    "/api/Student/{id}/activate": {
+    "/student/{id}/activation": {
       "post": {
         "tags": [
           "Student"
