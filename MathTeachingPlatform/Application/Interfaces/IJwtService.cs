@@ -14,5 +14,8 @@ namespace Application.Interfaces
         string GenerateAccessToken(User user);
         string GenerateRefreshToken();
         ClaimsPrincipal? ValidateToken(string token);
+        ClaimsPrincipal? ValidateExpiredToken(string token);
+        int GetAccessTokenExpirationMinutes();
+        int GetRefreshTokenExpirationDays();
     }
 }

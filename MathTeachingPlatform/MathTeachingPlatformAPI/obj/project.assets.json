@@ -731,7 +731,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.IdentityModel.Abstractions/8.0.0": {
+      "Microsoft.IdentityModel.Abstractions/8.15.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.IdentityModel.Abstractions.dll": {
@@ -744,10 +744,10 @@
           }
         }
       },
-      "Microsoft.IdentityModel.JsonWebTokens/8.0.0": {
+      "Microsoft.IdentityModel.JsonWebTokens/8.15.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "8.0.0"
+          "Microsoft.IdentityModel.Tokens": "8.15.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
@@ -760,10 +760,10 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Logging/8.0.0": {
+      "Microsoft.IdentityModel.Logging/8.15.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "8.0.0"
+          "Microsoft.IdentityModel.Abstractions": "8.15.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.IdentityModel.Logging.dll": {
@@ -810,10 +810,11 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Tokens/8.0.0": {
+      "Microsoft.IdentityModel.Tokens/8.15.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "8.0.0"
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.IdentityModel.Logging": "8.15.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.IdentityModel.Tokens.dll": {
@@ -899,7 +900,7 @@
           }
         }
       },
-      "Octopus.Client/17.17.2398": {
+      "Octopus.Client/19.2.2441": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -1158,11 +1159,11 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "System.IdentityModel.Tokens.Jwt/8.0.0": {
+      "System.IdentityModel.Tokens.Jwt/8.15.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.JsonWebTokens": "8.0.0",
-          "Microsoft.IdentityModel.Tokens": "8.0.0"
+          "Microsoft.IdentityModel.JsonWebTokens": "8.15.0",
+          "Microsoft.IdentityModel.Tokens": "8.15.0"
         },
         "compile": {
           "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll": {
@@ -1313,7 +1314,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Domain": "1.0.0",
-          "Octopus.Client": "17.17.2398"
+          "Octopus.Client": "19.2.2441"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -1347,7 +1348,7 @@
           "Newtonsoft.Json": "13.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
           "RestSharp": "112.1.0",
-          "System.IdentityModel.Tokens.Jwt": "8.0.0"
+          "System.IdentityModel.Tokens.Jwt": "8.15.0"
         },
         "compile": {
           "bin/placeholder/Infrastructure.dll": {}
@@ -2612,13 +2613,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.IdentityModel.Abstractions/8.0.0": {
-      "sha512": "MjLnmBdt5uyDLTsW+tjMQLnNw5iBKeK+cJYVyPyvCSRVN1gF5Xdu7fZ0hHQl0e7ReaeFGVlL20sx9eKInxKkIQ==",
+    "Microsoft.IdentityModel.Abstractions/8.15.0": {
+      "sha512": "e/DApa1GfxUqHSBHcpiQg8yaghKAvFVBQFcWh25jNoRobDZbduTUACY8bZ54eeGWXvimGmEDdF0zkS5Dq16XPQ==",
       "type": "package",
-      "path": "microsoft.identitymodel.abstractions/8.0.0",
+      "path": "microsoft.identitymodel.abstractions/8.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Abstractions.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net462/Microsoft.IdentityModel.Abstractions.dll",
         "lib/net462/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net472/Microsoft.IdentityModel.Abstractions.dll",
@@ -2631,17 +2635,20 @@
         "lib/net9.0/Microsoft.IdentityModel.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.xml",
-        "microsoft.identitymodel.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.identitymodel.abstractions.8.15.0.nupkg.sha512",
         "microsoft.identitymodel.abstractions.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.JsonWebTokens/8.0.0": {
-      "sha512": "QgbntXMwsrTOoNw0lZmmVCaw+o92vETUJRNN0NQF1M57HUvxyd0fTWPGDk9KCctAtzm81vYHu/ief7i5lJl9GQ==",
+    "Microsoft.IdentityModel.JsonWebTokens/8.15.0": {
+      "sha512": "3513f5VzvOZy3ELd42wGnh1Q3e83tlGAuXFSNbENpgWYoAhLLzgFtd5PiaOPGAU0gqKhYGVzKavghLUGfX3HQg==",
       "type": "package",
-      "path": "microsoft.identitymodel.jsonwebtokens/8.0.0",
+      "path": "microsoft.identitymodel.jsonwebtokens/8.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll",
+        "lib/net10.0/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net462/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/net462/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net472/Microsoft.IdentityModel.JsonWebTokens.dll",
@@ -2654,17 +2661,20 @@
         "lib/net9.0/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "microsoft.identitymodel.jsonwebtokens.8.0.0.nupkg.sha512",
+        "microsoft.identitymodel.jsonwebtokens.8.15.0.nupkg.sha512",
         "microsoft.identitymodel.jsonwebtokens.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Logging/8.0.0": {
-      "sha512": "bLqpdwrwN9D/INjst8L2a9p0GI8E8SXGJjRYQu6vmEpjnDf6SoVAphEtCVNsyh44iDrT5oVxv9/hkXH7JaezCA==",
+    "Microsoft.IdentityModel.Logging/8.15.0": {
+      "sha512": "1gJLjhy0LV2RQMJ9NGzi5Tnb2l+c37o8D8Lrk2mrvmb6OQHZ7XJstd/XxvncXgBpad4x9CGXdipbZzJJCXKyAg==",
       "type": "package",
-      "path": "microsoft.identitymodel.logging/8.0.0",
+      "path": "microsoft.identitymodel.logging/8.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Logging.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Logging.xml",
         "lib/net462/Microsoft.IdentityModel.Logging.dll",
         "lib/net462/Microsoft.IdentityModel.Logging.xml",
         "lib/net472/Microsoft.IdentityModel.Logging.dll",
@@ -2677,7 +2687,7 @@
         "lib/net9.0/Microsoft.IdentityModel.Logging.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Logging.xml",
-        "microsoft.identitymodel.logging.8.0.0.nupkg.sha512",
+        "microsoft.identitymodel.logging.8.15.0.nupkg.sha512",
         "microsoft.identitymodel.logging.nuspec"
       ]
     },
@@ -2727,13 +2737,16 @@
         "microsoft.identitymodel.protocols.openidconnect.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Tokens/8.0.0": {
-      "sha512": "7QgSZtOkgW0yaACDuwf1wDzNwDlWEsS81ia3wZAlEgk45QQuqG3GkgqMELPMRBexC902ecjwmMQ1Act90mZD9w==",
+    "Microsoft.IdentityModel.Tokens/8.15.0": {
+      "sha512": "zUE9ysJXBtXlHHRtcRK3Sp8NzdCI1z/BRDTXJQ2TvBoI0ENRtnufYIep0O5TSCJRJGDwwuLTUx+l/bEYZUxpCA==",
       "type": "package",
-      "path": "microsoft.identitymodel.tokens/8.0.0",
+      "path": "microsoft.identitymodel.tokens/8.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Tokens.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Tokens.xml",
         "lib/net462/Microsoft.IdentityModel.Tokens.dll",
         "lib/net462/Microsoft.IdentityModel.Tokens.xml",
         "lib/net472/Microsoft.IdentityModel.Tokens.dll",
@@ -2746,7 +2759,7 @@
         "lib/net9.0/Microsoft.IdentityModel.Tokens.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.xml",
-        "microsoft.identitymodel.tokens.8.0.0.nupkg.sha512",
+        "microsoft.identitymodel.tokens.8.15.0.nupkg.sha512",
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
@@ -2846,10 +2859,10 @@
         "postgresql.png"
       ]
     },
-    "Octopus.Client/17.17.2398": {
-      "sha512": "e5F5p27tzy4Lcm5UREGO2B+THhzfmPDviVVAxjIPZSEZEfHVOqdtp6L7aSkkBSSjMO2goKbj/xSTTBDt+45zdQ==",
+    "Octopus.Client/19.2.2441": {
+      "sha512": "QLMFImHQ7uXV2rYVUo2ZkjIcAl/qyO+1lT5uplrkbfRbPq4T7id8hyNHd6TLsCOwdJyQusGdYvnUOYmduwf8fg==",
       "type": "package",
-      "path": "octopus.client/17.17.2398",
+      "path": "octopus.client/19.2.2441",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2860,7 +2873,7 @@
         "lib/net48/Octopus.Client.xml",
         "lib/netstandard2.0/Octopus.Client.dll",
         "lib/netstandard2.0/Octopus.Client.xml",
-        "octopus.client.17.17.2398.nupkg.sha512",
+        "octopus.client.19.2.2441.nupkg.sha512",
         "octopus.client.nuspec"
       ]
     },
@@ -3250,13 +3263,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.IdentityModel.Tokens.Jwt/8.0.0": {
-      "sha512": "K0dNZoXiedkpkz8v8xj3jH5IeSa3iAPNu2OegePynCeG6wiLx7CvBfDa90hYOBJ58Y21tZFd9RLpzfS7rEaHlQ==",
+    "System.IdentityModel.Tokens.Jwt/8.15.0": {
+      "sha512": "dpodi7ixz6hxK8YCBYAWzm0IA8JYXoKcz0hbCbNifo519//rjUI0fBD8rfNr+IGqq+2gm4oQoXwHk09LX5SqqQ==",
       "type": "package",
-      "path": "system.identitymodel.tokens.jwt/8.0.0",
+      "path": "system.identitymodel.tokens.jwt/8.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "README.md",
+        "lib/net10.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net10.0/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net462/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net462/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net472/System.IdentityModel.Tokens.Jwt.dll",
@@ -3269,7 +3285,7 @@
         "lib/net9.0/System.IdentityModel.Tokens.Jwt.xml",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
-        "system.identitymodel.tokens.jwt.8.0.0.nupkg.sha512",
+        "system.identitymodel.tokens.jwt.8.15.0.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
@@ -3547,23 +3563,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Minh\\.nuget\\packages\\": {},
+    "C:\\Users\\LAPTOP\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
+      "projectUniqueName": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
       "projectName": "MathTeachingPlatformAPI",
-      "projectPath": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
-      "packagesPath": "C:\\Users\\Minh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\obj\\",
+      "projectPath": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\MathTeachingPlatformAPI.csproj",
+      "packagesPath": "C:\\Users\\LAPTOP\\.nuget\\packages\\",
+      "outputPath": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\MathTeachingPlatformAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Minh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LAPTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3579,11 +3595,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj"
+            "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj": {
+              "projectPath": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Application\\Application.csproj"
             },
-            "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Minh\\Desktop\\project\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj"
+            "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "E:\\Code\\PRN232_GroupProject\\MathTeachingPlatform\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -3642,7 +3658,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

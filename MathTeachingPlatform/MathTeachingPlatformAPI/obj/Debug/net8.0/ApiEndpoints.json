@@ -17,6 +17,36 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/Auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
+    "Method": "GetCurrentUser",
+    "RelativePath": "api/Auth/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Auth/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
@@ -470,6 +500,22 @@
   },
   {
     "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
+    "Method": "PaymentCallback",
+    "RelativePath": "payments/callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "url",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
     "Method": "MomoNotify",
     "RelativePath": "payments/momo/notify",
     "HttpMethod": "POST",
@@ -490,22 +536,6 @@
         "Name": "model",
         "Type": "Application.Models.Payment.OrderInfoModel",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MathTeachingPlatformAPI.Controllers.PaymentController",
-    "Method": "PaymentCallback",
-    "RelativePath": "payments/payment/paymentCallback",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "url",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []

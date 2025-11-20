@@ -68,6 +68,42 @@
         }
       }
     },
+    "/api/Auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/me": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/classes": {
       "post": {
         "tags": [
@@ -569,7 +605,7 @@
         }
       }
     },
-    "/payments/payment/paymentCallback": {
+    "/payments/callback": {
       "get": {
         "tags": [
           "Payment"

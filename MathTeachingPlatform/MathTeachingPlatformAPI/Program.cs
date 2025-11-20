@@ -92,6 +92,17 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
+// Add session support for refresh token management
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromDays(7); // Match refresh token expiration
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
+    options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddInfrastructure(builder.Configuration);
 
 // Add CORS services

@@ -20,6 +20,7 @@ namespace Infrastructure.Services
         private readonly string _issuer;
         private readonly string _audience;
         private readonly int _accessTokenExpirationMinutes;
+        private readonly int _refreshTokenExpirationDays;
 
         public JwtService(IConfiguration configuration)
         {
@@ -27,6 +28,7 @@ namespace Infrastructure.Services
             _issuer = configuration["Jwt:Issuer"] ?? "MathTeachingPlatform";
             _audience = configuration["Jwt:Audience"] ?? "MathTeachingPlatformAPI";
             _accessTokenExpirationMinutes = int.Parse(configuration["Jwt:AccessTokenExpirationMinutes"] ?? "15");
+            _refreshTokenExpirationDays = int.Parse(configuration["Jwt:RefreshTokenExpirationDays"] ?? "7");
         }
 
         public string GenerateAccessToken(User user)
@@ -37,8 +39,9 @@ namespace Infrastructure.Services
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
                 new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim("username", user.Username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64)
             };
@@ -77,7 +80,7 @@ namespace Infrastructure.Services
                     ValidIssuer = _issuer,
                     ValidateAudience = true,
                     ValidAudience = _audience,
-                    ValidateLifetime = false,
+                    ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 }, out SecurityToken validatedToken);
 
@@ -87,6 +90,43 @@ namespace Infrastructure.Services
             {
                 return null;
             }
+        }
+
+        public ClaimsPrincipal? ValidateExpiredToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(_secretKey);
+
+            try
+            {
+                var principal = tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = true,
+                    ValidIssuer = _issuer,
+                    ValidateAudience = true,
+                    ValidAudience = _audience,
+                    ValidateLifetime = false, // Don't validate lifetime for expired tokens
+                    ClockSkew = TimeSpan.Zero
+                }, out SecurityToken validatedToken);
+
+                return principal;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public int GetAccessTokenExpirationMinutes()
+        {
+            return _accessTokenExpirationMinutes;
+        }
+
+        public int GetRefreshTokenExpirationDays()
+        {
+            return _refreshTokenExpirationDays;
         }
     }
 }

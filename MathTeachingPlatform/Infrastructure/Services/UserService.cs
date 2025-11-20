@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.DTOs.Auth;
+using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using BCrypt.Net; 
 using Domain.Entities;
@@ -22,7 +23,7 @@ namespace Infrastructure.Services
             _jwtService = jwtService;
         }
 
-        public async Task<string> RegisterAsync(string username, string email, string password, string role)
+        public async Task<AuthResponse> RegisterAsync(string username, string email, string password, string role)
         {
             if (await _authUow.Users.AnyAsync(u => u.Username == username))
                 throw new Exception("Username already taken");
@@ -45,10 +46,19 @@ namespace Infrastructure.Services
             await _authUow.Users.AddAsync(user);
             await _authUow.SaveChangesAsync();
 
-            return _jwtService.GenerateAccessToken(user);
+            var accessToken = _jwtService.GenerateAccessToken(user);
+
+            return new AuthResponse
+            {
+                AccessToken = accessToken,
+                AccessTokenExpiry = DateTime.UtcNow.AddMinutes(_jwtService.GetAccessTokenExpirationMinutes()),
+                Email = email,
+                Role = userRole.ToString(),
+                Message = "Registration successful"
+            };
         }
 
-        public async Task<string> LoginAsync(string email, string password)
+        public async Task<AuthResponse> LoginAsync(string email, string password)
         {
             var user = await _authUow.Users.FirstOrDefaultAsync(x => x.Email == email);
 
@@ -58,6 +68,7 @@ namespace Infrastructure.Services
             if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
                 throw new Exception("Invalid email or password");
 
+            // Check user status based on role
             if (user.Role == UserRole.Student)
             {
                 var student = await _authUow.Students
@@ -79,7 +90,26 @@ namespace Infrastructure.Services
                 }
             }
 
-            return _jwtService.GenerateAccessToken(user);
+            // Generate access token
+            var accessToken = _jwtService.GenerateAccessToken(user);
+
+            return new AuthResponse
+            {
+                AccessToken = accessToken,
+                AccessTokenExpiry = DateTime.UtcNow.AddMinutes(_jwtService.GetAccessTokenExpirationMinutes()),
+                Email = email,
+                Role = user.Role.ToString(),
+                Message = "Login successful"
+            };
+        }
+
+        public async Task<AuthResponse> RefreshTokenAsync(string refreshToken)
+        {
+            // Validate the refresh token format
+            if (string.IsNullOrWhiteSpace(refreshToken))
+                throw new Exception("Invalid refresh token");
+
+            throw new Exception("Refresh token validation should be done at controller level with session");
         }
     }
 }
