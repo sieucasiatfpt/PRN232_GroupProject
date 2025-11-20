@@ -17,7 +17,7 @@ namespace MathTeachingPlatformAPI.Controllers
             _userService = userService;
         }
 
-        [Authorize(Roles = "Teacher,Admin")]
+       // [Authorize(Roles = "Teacher,Admin")]
         [HttpPut("{id}/payment-status")]
         public async Task<IActionResult> UpdatePaymentStatus(int id, [FromBody] PaymentStatus paymentStatus)
         {

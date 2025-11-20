@@ -33,7 +33,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        //[Authorize(Roles = "Teacher,Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClassById(int id)
         {
@@ -61,7 +61,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        //[Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-teacher/{teacherId}")]
         public async Task<IActionResult> GetClassesByTeacherId(int teacherId)
         {
@@ -75,7 +75,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        //[Authorize(Roles = "Teacher,Admin")]
         [HttpGet("by-subject/{subjectId}")]
         public async Task<IActionResult> GetClassesBySubjectId(int subjectId)
         {
@@ -148,7 +148,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        //[Authorize(Roles = "Teacher,Admin")]
         [HttpGet("teachers/{teacherId}/active-classes")]
         public async Task<IActionResult> HasActiveClassesAsync(int teacherId)
         {
