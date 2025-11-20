@@ -49,7 +49,8 @@ namespace Infrastructure.Services
         public async Task<bool> deleteAsync(int id)
         {
             var entity = await _uow.AIConfigs.FirstOrDefaultAsync(x => x.ConfigId == id) ?? throw new Exception("AI config not found");
-            _uow.AIConfigs.Remove(entity);
+            entity.IsActive = false;
+            _uow.AIConfigs.Update(entity);
             await _uow.SaveChangesAsync();
             return true;
         }
@@ -62,7 +63,7 @@ namespace Infrastructure.Services
 
         public async Task<List<AiConfigDto>> listByTeacherAsync(int teacherId)
         {
-            var items = await _uow.AIConfigs.FindAsync(x => x.TeacherId == teacherId);
+            var items = await _uow.AIConfigs.FindAsync(x => x.TeacherId == teacherId && x.IsActive);
             return items.Select(Map).ToList();
         }
 

@@ -67,11 +67,13 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.ResponseText).HasColumnName("response_text");
                 b.Property(x => x.ResponseData).HasColumnName("response_data");
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+                b.Property(x => x.IsDeleted).HasColumnName("is_deleted").IsRequired();
 
                 b.HasIndex(x => x.ConfigId);
                 b.HasIndex(x => x.StudentId);
                 b.HasIndex(x => x.MatrixId);
                 b.HasIndex(x => x.CreatedAt);
+                b.HasIndex(x => x.IsDeleted);
             });
 
             modelBuilder.Entity<AIHistoryChat>(b =>
@@ -84,9 +86,11 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.Message).HasColumnName("message").IsRequired();
                 b.Property(x => x.ChatSummary).HasColumnName("chat_summary");
                 b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+                b.Property(x => x.IsDeleted).HasColumnName("is_deleted").IsRequired();
 
                 b.HasIndex(x => x.TeacherId);
                 b.HasIndex(x => x.CreatedAt);
+                b.HasIndex(x => x.IsDeleted);
             });
 
             base.OnModelCreating(modelBuilder);
