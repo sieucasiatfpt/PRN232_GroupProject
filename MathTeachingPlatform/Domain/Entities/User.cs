@@ -28,6 +28,10 @@ namespace Domain.Entities
         [Column("role")]
         public UserRole Role { get; set; }
 
+        [Required]
+        [Column("payment_status")]
+        public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.Pending;
+
         [Column("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

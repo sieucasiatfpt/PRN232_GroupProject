@@ -11,7 +11,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Octopus.Client/17.17.2398": {
+      "Octopus.Client/19.2.2441": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -123,10 +123,10 @@
         "version.txt"
       ]
     },
-    "Octopus.Client/17.17.2398": {
-      "sha512": "e5F5p27tzy4Lcm5UREGO2B+THhzfmPDviVVAxjIPZSEZEfHVOqdtp6L7aSkkBSSjMO2goKbj/xSTTBDt+45zdQ==",
+    "Octopus.Client/19.2.2441": {
+      "sha512": "QLMFImHQ7uXV2rYVUo2ZkjIcAl/qyO+1lT5uplrkbfRbPq4T7id8hyNHd6TLsCOwdJyQusGdYvnUOYmduwf8fg==",
       "type": "package",
-      "path": "octopus.client/17.17.2398",
+      "path": "octopus.client/19.2.2441",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -137,7 +137,7 @@
         "lib/net48/Octopus.Client.xml",
         "lib/netstandard2.0/Octopus.Client.dll",
         "lib/netstandard2.0/Octopus.Client.xml",
-        "octopus.client.17.17.2398.nupkg.sha512",
+        "octopus.client.19.2.2441.nupkg.sha512",
         "octopus.client.nuspec"
       ]
     },
@@ -240,7 +240,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Domain >= 1.0.0",
-      "Octopus.Client >= 17.17.2398"
+      "Octopus.Client >= 19.2.2441"
     ]
   },
   "packageFolders": {
@@ -300,7 +300,7 @@
         "dependencies": {
           "Octopus.Client": {
             "target": "Package",
-            "version": "[17.17.2398, )"
+            "version": "[19.2.2441, )"
           }
         },
         "imports": [

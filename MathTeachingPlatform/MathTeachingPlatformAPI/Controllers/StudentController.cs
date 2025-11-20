@@ -1,11 +1,14 @@
 ﻿using Application.DTOs.Student;
 using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
@@ -15,6 +18,70 @@ namespace MathTeachingPlatformAPI.Controllers
             _studentService = studentService;
         }
 
+        private int GetCurrentUserId()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+            {
+                throw new UnauthorizedAccessException("Invalid token");
+            }
+            return userId;
+        }
+
+        private string GetCurrentUserRole()
+        {
+            return User.FindFirst(ClaimTypes.Role)?.Value ?? "Unknown";
+        }
+
+        [AllowAnonymous]
+        [HttpGet("public")]
+        public IActionResult GetPublicInfo()
+        {
+            return Ok(new { message = "This is public information" });
+        }
+
+        [HttpGet("profile")]
+        public IActionResult GetProfile()
+        {
+            var userId = GetCurrentUserId();
+            var role = GetCurrentUserRole();
+            return Ok(new { userId, role, message = "Your profile data" });
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllStudents()
+        {
+            try
+            {
+                var students = await _studentService.GetAllStudentsAsync();
+                return Ok(students);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+        [Authorize(Roles = "Teacher,Admin")]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetStudentById(int id)
+        {
+            try
+            {
+                var student = await _studentService.GetStudentByIdAsync(id);
+                if (student == null)
+                    return NotFound(new { error = "Student not found" });
+
+                return Ok(student);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateStudent([FromBody] CreateStudentRequest request)
         {
@@ -32,65 +99,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetStudentById(int id)
-        {
-            try
-            {
-                var student = await _studentService.GetStudentByIdAsync(id);
-                return Ok(student);
-            }
-            catch (Exception ex)
-            {
-                return NotFound(new { error = ex.Message });
-            }
-        }
-
-        [HttpGet("by-user/{userId}")]
-        public async Task<IActionResult> GetStudentByUserId(int userId)
-        {
-            try
-            {
-                var student = await _studentService.GetStudentByUserIdAsync(userId);
-                if (student == null)
-                    return NotFound(new { error = "Student not found for this user" });
-
-                return Ok(student);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllStudents()
-        {
-            try
-            {
-                var students = await _studentService.GetAllStudentsAsync();
-                return Ok(students);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-        }
-
-        [HttpGet("by-class/{classId}")]
-        public async Task<IActionResult> GetStudentsByClassId(int classId)
-        {
-            try
-            {
-                var students = await _studentService.GetStudentsByClassIdAsync(classId);
-                return Ok(students);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { error = ex.Message });
-            }
-        }
-
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] UpdateStudentRequest request)
         {
@@ -100,6 +109,9 @@ namespace MathTeachingPlatformAPI.Controllers
             try
             {
                 var student = await _studentService.UpdateStudentAsync(id, request);
+                if (student == null)
+                    return NotFound(new { error = "Student not found" });
+
                 return Ok(student);
             }
             catch (Exception ex)
@@ -108,6 +120,33 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpPatch("{id}/status")]
+        public async Task<IActionResult> UpdateStudentStatus(int id, [FromBody] UpdateStudentStatusRequest request)
+        {
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
+
+            try
+            {
+                var student = await _studentService.UpdateStudentStatusAsync(id, request.Status);
+                if (student == null)
+                    return NotFound(new { error = "Student not found" });
+
+                var action = request.Status == Domain.Enum.StudentStatus.Suspended ? "suspended" : "activated";
+                return Ok(new
+                {
+                    message = $"Student account has been {action}",
+                    student
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost("{id}/suspend")]
         public async Task<IActionResult> SuspendStudent(int id)
         {
@@ -122,6 +161,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("{id}/activate")]
         public async Task<IActionResult> ActivateStudent(int id)
         {

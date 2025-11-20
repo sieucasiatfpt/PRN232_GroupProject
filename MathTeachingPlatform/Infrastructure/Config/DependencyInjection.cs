@@ -79,31 +79,34 @@ namespace Infrastructure.Config
             // Configure HTTP clients for microservice communication
             services.AddHttpClient<ITeacherApiClient, TeacherApiClient>(client =>
             {
-                var baseUrl = cfg["Services:TeacherService:BaseUrl"] ?? "https://localhost:7075";
+                var baseUrl = cfg["Services:TeacherService:BaseUrl"] ?? "https://mathweb-e9ezeegehmfddmdp.canadacentral-01.azurewebsites.net";
                 client.BaseAddress = new Uri(baseUrl);
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
 
             services.AddHttpClient<ISubjectApiClient, SubjectApiClient>(client =>
             {
-                var baseUrl = cfg["Services:SubjectService:BaseUrl"] ?? "https://localhost:7075";
+                var baseUrl = cfg["Services:SubjectService:BaseUrl"] ?? "https://mathweb-e9ezeegehmfddmdp.canadacentral-01.azurewebsites.net";
                 client.BaseAddress = new Uri(baseUrl);
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
 
             services.AddHttpClient<IStudentApiClient, StudentApiClient>(client =>
             {
-                var baseUrl = cfg["Services:StudentService:BaseUrl"] ?? "https://localhost:7075";
+                var baseUrl = cfg["Services:StudentService:BaseUrl"] ?? "https://mathweb-e9ezeegehmfddmdp.canadacentral-01.azurewebsites.net";
                 client.BaseAddress = new Uri(baseUrl);
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
 
             services.AddHttpClient<IClassApiClient, ClassApiClient>(client =>
             {
-                var baseUrl = cfg["Services:ClassService:BaseUrl"] ?? "https://localhost:7075";
+                var baseUrl = cfg["Services:ClassService:BaseUrl"] ?? "https://mathweb-e9ezeegehmfddmdp.canadacentral-01.azurewebsites.net";
                 client.BaseAddress = new Uri(baseUrl);
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
+
+            // Register JWT service
+            services.AddSingleton<IJwtService, JwtService>();
 
             // Register business services
             services.AddScoped<IUserService, UserService>();
@@ -111,6 +114,9 @@ namespace Infrastructure.Config
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<IClassService, ClassService>();
+            services.AddScoped<IQuizService, QuizService>();
+            services.AddScoped<IAiConfigService, AiConfigService>();
+            services.AddScoped<IAiHistoryChatService, AiHistoryChatService>();
 
             // Payment services
             services.AddScoped<IPaymentRepository, PaymentRepository>();

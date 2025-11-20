@@ -57,7 +57,7 @@
           "dependencies": {
             "Octopus.Client": {
               "target": "Package",
-              "version": "[17.17.2398, )"
+              "version": "[19.2.2441, )"
             }
           },
           "imports": [

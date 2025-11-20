@@ -39,7 +39,7 @@ namespace Infrastructure.ApiClients
         {
             try
             {
-                var response = await _httpClient.GetAsync($"teacher/{teacherId}");
+                var response = await _httpClient.GetAsync($"teachers/{teacherId}");
                 return response.IsSuccessStatusCode;
             }
             catch
