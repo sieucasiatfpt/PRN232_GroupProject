@@ -111,5 +111,26 @@ namespace Infrastructure.Services
 
             throw new Exception("Refresh token validation should be done at controller level with session");
         }
+
+        public async Task<bool> UpdatePaymentStatusAsync(int userId, PaymentStatus paymentStatus)
+        {
+            var user = await _authUow.Users.GetByIdAsync(userId);
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.PaymentStatus = paymentStatus;
+            //user.UpdatedAt = DateTime.UtcNow;
+
+            _authUow.Users.Update(user);
+            await _authUow.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        {
+            return await _authUow.Users.GetAllAsync();
+        }
     }
 }
