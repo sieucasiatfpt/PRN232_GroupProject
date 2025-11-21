@@ -18,6 +18,7 @@ namespace Infrastructure.Repositories
         private IRepository<ExamMatrix>? _examMatrices;
         private IRepository<ExamQuestion>? _examQuestions;
         private IRepository<Activity>? _activities;
+        private IRepository<ExamAssignment>? _examAssignments;
 
         public ContentUnitOfWork(ContentDbContext context) : base(context) { }
 
@@ -28,5 +29,6 @@ namespace Infrastructure.Repositories
         public IRepository<ExamMatrix> ExamMatrices => _examMatrices ??= new Repository<ExamMatrix>(_context);
         public IRepository<ExamQuestion> ExamQuestions => _examQuestions ??= new Repository<ExamQuestion>(_context);
         public IRepository<Activity> Activities => _activities ??= new Repository<Activity>(_context);
+        public IRepository<ExamAssignment> ExamAssignments => _examAssignments ??= new Repository<ExamAssignment>(_context);
     }
 }

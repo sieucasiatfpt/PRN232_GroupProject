@@ -32,6 +32,9 @@ namespace Domain.Entities
         [Column("answers")]
         public string Answers { get; set; } = string.Empty;
 
+        [Column("image_url")]
+        public string? ImageUrl { get; set; }
+
         [Column("marks")]
         public int? Marks { get; set; }
 
