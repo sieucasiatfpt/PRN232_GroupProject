@@ -14,6 +14,7 @@ namespace Infrastructure.Persistence
         public DbSet<Syllabus> Syllabi => Set<Syllabus>();
         public DbSet<ExamMatrix> ExamMatrices => Set<ExamMatrix>();
         public DbSet<ExamQuestion> ExamQuestions => Set<ExamQuestion>();
+        public DbSet<ExamAssignment> ExamAssignments => Set<ExamAssignment>();
         public DbSet<Activity> Activities => Set<Activity>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -159,10 +160,30 @@ namespace Infrastructure.Persistence
                 b.Property(x => x.Answers).HasColumnName("answers").IsRequired();
                 b.Property(x => x.Marks).HasColumnName("marks");
                 b.Property(x => x.Points).HasColumnName("points").HasColumnType("decimal(5,2)");
+                b.Property(x => x.ImageUrl).HasColumnName("image_url");
 
                 b.HasIndex(x => x.SyllabusId);
                 b.HasIndex(x => x.MatrixId);
                 b.HasIndex(x => x.QuestionType);
+            });
+
+            modelBuilder.Entity<ExamAssignment>(b =>
+            {
+                b.ToTable("exam_assignments");
+                b.HasKey(x => x.AssignmentId);
+
+                b.Property(x => x.AssignmentId).HasColumnName("assignment_id");
+                b.Property(x => x.MatrixId).HasColumnName("matrix_id").IsRequired();
+                b.Property(x => x.ClassId).HasColumnName("class_id").IsRequired();
+                b.Property(x => x.StartTime).HasColumnName("start_time");
+                b.Property(x => x.EndTime).HasColumnName("end_time");
+                b.Property(x => x.Status).HasColumnName("status").HasMaxLength(50).IsRequired();
+                b.Property(x => x.CreatedAt).HasColumnName("created_at").IsRequired();
+
+                b.HasIndex(x => x.ClassId);
+                b.HasIndex(x => x.MatrixId);
+                b.HasIndex(x => x.Status);
+                b.HasIndex(x => x.StartTime);
             });
 
             modelBuilder.Entity<Activity>(b =>

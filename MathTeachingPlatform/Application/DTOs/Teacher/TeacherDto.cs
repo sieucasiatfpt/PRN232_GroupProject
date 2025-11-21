@@ -22,6 +22,12 @@ namespace Application.DTOs.Teacher
         public List<ClassInfoDto> Classes { get; set; } = new();
     }
 
+    public class TeacherIdDto
+    {
+        public int TeacherId { get; set; }
+        public int UserId { get; set; }
+    }
+
     public class SubjectInfoDto
     {
         public int SubjectId { get; set; }

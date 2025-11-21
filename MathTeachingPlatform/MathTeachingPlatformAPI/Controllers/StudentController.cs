@@ -7,7 +7,7 @@ using System.Security.Claims;
 namespace MathTeachingPlatformAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("student")]
     [Authorize]
     public class StudentController : ControllerBase
     {
@@ -28,27 +28,31 @@ namespace MathTeachingPlatformAPI.Controllers
             return userId;
         }
 
-        private string GetCurrentUserRole()
-        {
-            return User.FindFirst(ClaimTypes.Role)?.Value ?? "Unknown";
-        }
-
-        [AllowAnonymous]
-        [HttpGet("public")]
-        public IActionResult GetPublicInfo()
-        {
-            return Ok(new { message = "This is public information" });
-        }
-
+        [Authorize(Roles = "Student")]
         [HttpGet("profile")]
-        public IActionResult GetProfile()
+        public async Task<IActionResult> GetProfile()
         {
-            var userId = GetCurrentUserId();
-            var role = GetCurrentUserRole();
-            return Ok(new { userId, role, message = "Your profile data" });
+            try
+            {
+                var userId = GetCurrentUserId();
+                var student = await _studentService.GetStudentByUserIdAsync(userId);
+
+                if (student == null)
+                    return NotFound(new { error = "Student profile not found" });
+
+                return Ok(student);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllStudents()
         {
@@ -81,7 +85,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateStudent([FromBody] CreateStudentRequest request)
         {
@@ -120,7 +124,7 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPatch("{id}/status")]
         public async Task<IActionResult> UpdateStudentStatus(int id, [FromBody] UpdateStudentStatusRequest request)
         {
@@ -146,8 +150,8 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost("{id}/suspend")]
+        [Authorize(Roles = "Teacher,Admin")]
+        [HttpPost("{id}/suspension")]
         public async Task<IActionResult> SuspendStudent(int id)
         {
             try
@@ -161,8 +165,8 @@ namespace MathTeachingPlatformAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost("{id}/activate")]
+        [Authorize(Roles = "Teacher,Admin")]
+        [HttpPost("{id}/activation")]
         public async Task<IActionResult> ActivateStudent(int id)
         {
             try

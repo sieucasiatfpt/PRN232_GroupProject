@@ -47,7 +47,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return NotFound(new { error = ex.Message });
             }
         }
-        [Authorize(Roles = "Teacher,Admin")]
+        [Authorize(Roles = "Teacher,Admin,Student")]
         [HttpGet]
         public async Task<IActionResult> GetAllClasses()
         {
@@ -148,7 +148,7 @@ namespace MathTeachingPlatformAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-        //[Authorize(Roles = "Teacher,Admin")]
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpGet("teachers/{teacherId}/active-classes")]
         public async Task<IActionResult> HasActiveClassesAsync(int teacherId)
         {
