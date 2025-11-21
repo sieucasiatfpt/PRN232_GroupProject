@@ -32,16 +32,15 @@ namespace MathTeachingPlatformAPI.Controllers
         {
             // repository-level soft delete: set is_deleted=true
             // fetch via unit of work
-            return await Task.Run(async () =>
-            {
-                var uow = HttpContext.RequestServices.GetRequiredService<Application.Interfaces.Repositories.IAiUnitOfWork>();
-                var chat = await uow.AIHistoryChats.FirstOrDefaultAsync(x => x.ChatId == id);
-                if (chat == null) return NotFound();
-                chat.IsDeleted = true;
-                uow.AIHistoryChats.Update(chat);
-                await uow.SaveChangesAsync();
-                return NoContent();
-            });
+
+            var uow = HttpContext.RequestServices.GetRequiredService<Application.Interfaces.Repositories.IAiUnitOfWork>();
+            var chat = await uow.AIHistoryChats.FirstOrDefaultAsync(x => x.ChatId == id);
+            if (chat == null) return NotFound();
+
+            chat.IsDeleted = true;
+            uow.AIHistoryChats.Update(chat);
+            await uow.SaveChangesAsync();
+            return NoContent();
         }
 
         [HttpGet("{id}")]

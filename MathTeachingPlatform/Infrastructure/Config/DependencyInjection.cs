@@ -42,7 +42,7 @@ namespace Infrastructure.Config
                 }
                 catch { return conn; }
             }
-
+            services.AddHttpContextAccessor();
             authConn = Normalize(authConn);
             contentConn = Normalize(contentConn);
             examConn = Normalize(examConn);
@@ -75,6 +75,7 @@ namespace Infrastructure.Config
             services.AddScoped<IContentUnitOfWork, ContentUnitOfWork>();
             services.AddScoped<IExamUnitOfWork, ExamUnitOfWork>();
             services.AddScoped<IAiUnitOfWork, AiUnitOfWork>();
+
 
             // Configure HTTP clients for microservice communication
             services.AddHttpClient<ITeacherApiClient, TeacherApiClient>(client =>
@@ -127,7 +128,11 @@ namespace Infrastructure.Config
             services.AddScoped<IMomoService, MomoService>();
 
             services.AddHttpClient();
-
+            services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
             return services;
         }
     }

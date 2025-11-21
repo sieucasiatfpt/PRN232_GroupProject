@@ -167,7 +167,7 @@ namespace MathTeachingPlatformAPI.Controllers
         }
 
         // MOMO Integration
-        //[Authorize(Roles = "Teacher,Admin")]
+        [Authorize(Roles = "Teacher,Admin")]
         [HttpPost("momo/url")]
         public async Task<IActionResult> CreatePaymentUrl([FromBody] OrderInfoModel model)
         {
@@ -195,70 +195,89 @@ namespace MathTeachingPlatformAPI.Controllers
         {
             try
             {
-                // 1️⃣ Lấy query parameters
+                // 1️⃣ Parse query parameters
                 var parameters = string.IsNullOrEmpty(url)
                     ? HttpContext.Request.Query.ToDictionary(kvp => kvp.Key, kvp => kvp.Value)
                     : Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(url).Query);
 
+                // 2️⃣ Build callback model
                 var callback = new MomoCallbackResponseModel
                 {
-                    PartnerCode = parameters["partnerCode"],
-                    AccessKey = parameters["accessKey"],
-                    RequestId = parameters["requestId"],
-                    Amount = parameters["amount"],
-                    OrderId = parameters["orderId"],
-                    OrderInfo = parameters["orderInfo"],
-                    OrderType = parameters["orderType"],
-                    TransId = parameters["transId"],
-                    Message = parameters["message"],
-                    LocalMessage = parameters["localMessage"],
-                    ResponseTime = parameters["responseTime"],
-                    ErrorCode = int.TryParse(parameters["errorCode"], out var errorCode) ? errorCode : -1,
-                    PayType = parameters["payType"],
+                    PartnerCode = parameters.ContainsKey("partnerCode") ? parameters["partnerCode"].ToString() ?? "" : "",
+                    AccessKey = parameters.ContainsKey("accessKey") ? parameters["accessKey"].ToString() ?? "" : "",
+                    RequestId = parameters.ContainsKey("requestId") ? parameters["requestId"].ToString() ?? "" : "",
+                    Amount = parameters.ContainsKey("amount") ? parameters["amount"].ToString() ?? "" : "",
+                    OrderId = parameters.ContainsKey("orderId") ? parameters["orderId"].ToString() ?? "" : "",
+                    OrderInfo = parameters.ContainsKey("orderInfo") ? parameters["orderInfo"].ToString() ?? "" : "",
+                    OrderType = parameters.ContainsKey("orderType") ? parameters["orderType"].ToString() ?? "" : "",
+                    TransId = parameters.ContainsKey("transId") ? parameters["transId"].ToString() ?? "" : "",
+                    Message = parameters.ContainsKey("message") ? parameters["message"].ToString() ?? "" : "",
+                    LocalMessage = parameters.ContainsKey("localMessage") ? parameters["localMessage"].ToString() ?? "" : "",
+                    ResponseTime = parameters.ContainsKey("responseTime") ? parameters["responseTime"].ToString() ?? "" : "",
+                    ErrorCode = parameters.ContainsKey("errorCode") && int.TryParse(parameters["errorCode"], out var errorCode) ? errorCode : -1,
+                    PayType = parameters.ContainsKey("payType") ? parameters["payType"].ToString() ?? "" : "",
                     ExtraData = parameters.ContainsKey("extraData") ? parameters["extraData"].ToString() ?? "" : ""
                 };
 
-                // 2️⃣ Validate signature
+                // 3️⃣ Validate signature
+                if (!parameters.ContainsKey("signature"))
+                    return BadRequest(new { success = false, error = "Missing signature parameter" });
+
                 var signature = parameters["signature"];
                 if (!await _momoService.ValidateSignature(callback, signature))
-                    return BadRequest(new { success = false, message = "Invalid signature" });
+                    return BadRequest(new { success = false, error = "Invalid signature" });
 
-                // 3️⃣ Lấy PaymentId từ ExtraData
+                // 4️⃣ Parse PaymentId from ExtraData
+                if (string.IsNullOrWhiteSpace(callback.ExtraData))
+                    return BadRequest(new { success = false, error = "Missing PaymentId in ExtraData" });
+
                 if (!int.TryParse(callback.ExtraData, out var paymentId))
-                    return BadRequest(new { success = false, message = "Invalid PaymentId in ExtraData" });
+                    return BadRequest(new { success = false, error = "Invalid PaymentId in ExtraData" });
 
-                // 4️⃣ Lấy Payment để lấy TeacherId
+                // 5️⃣ Get Payment
                 var payment = await _paymentService.GetPaymentByIdAsync(paymentId);
                 if (payment == null)
-                    return NotFound(new { success = false, message = "Payment not found" });
+                    return NotFound(new { success = false, error = "Payment not found" });
 
                 var teacherId = payment.TeacherId;
 
-                // 5️⃣ Lấy thông tin Teacher
-                var teacherData = await _teacherApiClient.GetTeacherByIdAsync(teacherId);
-                if (teacherData == null || teacherData.UserId == 0)
-                    return BadRequest(new { success = false, message = "Failed to retrieve teacher details" });
-
+                // 6️⃣ Get Teacher
+                TeacherIdDto? teacherData = null;
+                var teacherApiUrl = $"https://mathweb-e9ezeegehmfddmdp.canadacentral-01.azurewebsites.net/teachers/{teacherId}";
+                using (var httpClient = new HttpClient())
+                {
+                    var teacherResponse = await httpClient.GetAsync(teacherApiUrl);
+                    if (!teacherResponse.IsSuccessStatusCode)
+                    {
+                        var detail = await teacherResponse.Content.ReadAsStringAsync();
+                        return NotFound(new { success = false, error = "Teacher not found", teacherId, detail });
+                    }
+                    var json = await teacherResponse.Content.ReadAsStringAsync();
+                    teacherData = JsonSerializer.Deserialize<TeacherIdDto>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                    if (teacherData == null)
+                        return BadRequest(new { success = false, error = "Failed to deserialize teacher data", teacherId, json });
+                }
                 var userId = teacherData.UserId;
 
-                // 6️⃣ Xác định trạng thái payment
+                // 7️⃣ Determine payment status
                 var status = callback.ErrorCode == 0 ? PaymentStatus.Completed : PaymentStatus.Failed;
 
-                // 7️⃣ Cập nhật Payment
+                // 8️⃣ Update Payment
                 await _paymentService.UpdatePaymentAsync(new UpdatePaymentDto
                 {
                     PaymentId = paymentId,
                     Status = status
                 });
 
-                // 8️⃣ Cập nhật User PaymentStatus qua UserController API
-                var payload = new { paymentStatus = (int)status }; // Gửi dạng int
+                // 9️⃣ Update User PaymentStatus via UserController API
                 var userApiUrl = $"https://mathweb-e9ezeegehmfddmdp.canadacentral-01.azurewebsites.net/users/{userId}/payment-status";
-
                 using (var httpClient = new HttpClient())
                 {
                     var content = new StringContent(
-                        JsonSerializer.Serialize(payload),
+                        JsonSerializer.Serialize(status.ToString()),
                         Encoding.UTF8,
                         "application/json"
                     );
@@ -270,22 +289,23 @@ namespace MathTeachingPlatformAPI.Controllers
                         return BadRequest(new
                         {
                             success = false,
-                            message = "Failed to update user payment status",
+                            error = "Failed to update user payment status",
                             detail
                         });
                     }
                 }
 
-                // 9️⃣ Trả kết quả callback
+                // 🔟 Return callback result
                 return status == PaymentStatus.Completed
                     ? Ok(new { success = true, message = "Payment successful", data = callback })
-                    : BadRequest(new { success = false, message = callback.Message, errorCode = callback.ErrorCode });
+                    : BadRequest(new { success = false, error = callback.Message, errorCode = callback.ErrorCode });
             }
             catch (Exception ex)
             {
                 return BadRequest(new { success = false, error = ex.Message });
             }
         }
+
 
 
         [Authorize(Roles = "Teacher,Admin")]

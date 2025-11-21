@@ -16,5 +16,6 @@ namespace Application.Interfaces.Repositories
         IRepository<ExamMatrix> ExamMatrices { get; }
         IRepository<ExamQuestion> ExamQuestions { get; }
         IRepository<Activity> Activities { get; }
+        IRepository<ExamAssignment> ExamAssignments { get; }
     }
 }

@@ -54,30 +54,6 @@ namespace Infrastructure.Services
             if (!teacherExists)
                 throw new Exception("Teacher not found");
 
-            // Business Rule: Check if teacher already has a class with the same subject
-            var existingClassWithSameSubject = await _contentUow.Classes
-                .FirstOrDefaultAsync(c => c.TeacherId == request.TeacherId &&
-                                        c.SubjectId == request.SubjectId);
-
-            if (existingClassWithSameSubject != null)
-            {
-                throw new InvalidOperationException($"Teacher is already assigned to class '{existingClassWithSameSubject.Name}' (ID: {existingClassWithSameSubject.ClassId}) with the same subject (Subject ID: {request.SubjectId}). A teacher cannot have multiple classes for the same subject.");
-            }
-
-            // Business Rule: Check if teacher already has a class starting on the same day
-            if (request.StartDate.HasValue)
-            {
-                var teacherClassOnSameDay = await _contentUow.Classes
-                    .FirstOrDefaultAsync(c => c.TeacherId == request.TeacherId &&
-                                            c.StartDate.HasValue &&
-                                            c.StartDate.Value.Date == request.StartDate.Value.Date);
-
-                if (teacherClassOnSameDay != null)
-                {
-                    throw new InvalidOperationException($"Teacher is already assigned to class '{teacherClassOnSameDay.Name}' (ID: {teacherClassOnSameDay.ClassId}) that starts on {request.StartDate.Value:yyyy-MM-dd}. A teacher cannot have multiple classes starting on the same day.");
-                }
-            }
-
             var classEntity = new Class
             {
                 SubjectId = request.SubjectId,
