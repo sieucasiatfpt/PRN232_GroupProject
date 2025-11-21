@@ -765,7 +765,6 @@ C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatf
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\MathTeachingPlatformAPI.sourcelink.json
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\scopedcss\bundle\MathTeachingPlatformAPI.styles.css
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
@@ -775,3 +774,9 @@ C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatf
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\MathTeachingPlatformAPI.pdb
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\MathTeachingPlatformAPI.genruntimeconfig.cache
 C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\ref\MathTeachingPlatformAPI.dll
+C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets\msbuild.MathTeachingPlatformAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets\msbuild.MathTeachingPlatformAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.MathTeachingPlatformAPI.props
+C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MathTeachingPlatformAPI.props
+C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MathTeachingPlatformAPI.props
+C:\Users\Minh\Desktop\PRN232_GroupProject\MathTeachingPlatform\MathTeachingPlatformAPI\obj\Debug\net8.0\staticwebassets.pack.json

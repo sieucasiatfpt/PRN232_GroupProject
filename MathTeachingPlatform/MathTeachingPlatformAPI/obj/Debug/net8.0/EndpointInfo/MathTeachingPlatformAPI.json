@@ -1866,21 +1866,19 @@
       },
       "PaymentMethod": {
         "enum": [
-          0,
-          1,
-          2
+          "Bank",
+          "Momo",
+          "Cash"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "PaymentStatus": {
         "enum": [
-          0,
-          1,
-          2
+          "Pending",
+          "Completed",
+          "Failed"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "RegisterRequest": {
         "required": [
@@ -1916,19 +1914,17 @@
       },
       "StudentStatus": {
         "enum": [
-          0,
-          1
+          "Active",
+          "Suspended"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "TeacherStatus": {
         "enum": [
-          0,
-          1
+          "Active",
+          "Inactive"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "UpdateAiConfigRequest": {
         "type": "object",

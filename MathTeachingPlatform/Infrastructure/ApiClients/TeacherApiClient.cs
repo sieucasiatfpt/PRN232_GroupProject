@@ -25,15 +25,25 @@ namespace Infrastructure.ApiClients
                 var response = await _httpClient.GetAsync($"teachers/{teacherId}");
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadFromJsonAsync<TeacherDto>();
+                    var json = await response.Content.ReadAsStringAsync();
+                    // Log the raw JSON for debugging
+                    Console.WriteLine($"Teacher API response: {json}");
+
+                    return System.Text.Json.JsonSerializer.Deserialize<TeacherDto>(json, new System.Text.Json.JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
                 }
                 return null;
             }
-            catch
+            catch (Exception ex)
             {
+                // Log the exception for debugging
+                Console.WriteLine($"Exception in GetTeacherByIdAsync: {ex}");
                 return null;
             }
         }
+
 
         public async Task<bool> TeacherExistsAsync(int teacherId)
         {
